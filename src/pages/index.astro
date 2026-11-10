@@ -12,7 +12,7 @@ const conversationHref = home.cta.conversationHref ?? '#contact';
 
 // Flagship entries: projects and employer case studies, in roster order.
 const flagships = [
-  ...work.map((w) => ({
+  ...work.filter((w) => w.data.tier === 'flagship').map((w) => ({
     order: w.data.order,
     title: w.data.title,
     href: `/work/${w.id}`,
@@ -32,6 +32,14 @@ const flagships = [
     figure: undefined,
     tiles: { label: c.data.metricsLabel, metrics: c.data.metrics },
   })),
+].sort((a, b) => a.order - b.order);
+
+// Compact rows: projects with a deep-dive (internal link) and those without.
+const rows = [
+  ...work
+    .filter((w) => w.data.tier === 'index')
+    .map((w) => ({ order: w.data.order, title: w.data.title, line: w.data.whatItIs, chips: w.data.chips, href: `/work/${w.id}`, external: false })),
+  ...home.more.map((m) => ({ ...m, external: true })),
 ].sort((a, b) => a.order - b.order);
 ---
 
@@ -128,13 +136,13 @@ const flagships = [
 
     <ol class="rows">
       {
-        home.more.map((m) => (
+        rows.map((m) => (
           <li class="row">
             <span class="idx row__num">{pad(m.order)}<span aria-hidden="true"> / </span><span class="sr">of </span>{pad(ROSTER)}</span>
             <h3 class="row__title">
               {m.href ? (
-                <a href={m.href} rel="noopener">
-                  {m.title} <span class="arrow" aria-hidden="true">↗</span>
+                <a href={m.href} rel={m.external ? 'noopener' : undefined}>
+                  {m.title} <span class="arrow" aria-hidden="true">{m.external ? '↗' : '→'}</span>
                 </a>
               ) : (
                 m.title
