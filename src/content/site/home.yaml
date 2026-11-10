@@ -25,27 +25,8 @@ links:
   - label: GitHub
     href: https://github.com/karthik-v-kumar
 
-# §5.2 roster entries without a deep-dive yet. One line each, facts from the
-# brief. [NEEDS INPUT — five-part copy and synthetic-data screenshots]
+# §5.2 roster entries without a deep-dive yet. One line each, facts from the brief.
 more:
-  - order: 5
-    title: Financial planning app
-    line: >-
-      A household planning app for income, budget, and tax estimates, with
-      card-benefit tracking. I can ask an AI agent questions about my own plan.
-    chips: [In daily use, Private repo]
-  - order: 6
-    title: Trading research platform
-    line: >-
-      A watchlist research app with computed valuation views, catalyst
-      tracking, and a daily data pipeline on GitHub Actions.
-    chips: [Private repo]
-  - order: 7
-    title: Trip Hub
-    line: >-
-      A travel planner for trips, itineraries, packing lists, and documents. My
-      AI agent can read and manage trips from chat.
-    chips: [In use, Private repo]
   - order: 8
     title: Stocked
     line: >-
@@ -53,12 +34,6 @@ more:
       filter tracking.
     chips: [Live, Public repo]
     href: https://stocked.grok.me
-  - order: 9
-    title: Recoup
-    line: >-
-      A card-benefits wallet that tracks card credits and offers so they get
-      used before they expire.
-    chips: [Working product, Private repo]
 
 # §5.3. Draft wording from the brief's framing. [NEEDS INPUT — CONTENT.md copy]
 build:
