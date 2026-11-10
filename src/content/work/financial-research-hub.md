@@ -33,7 +33,6 @@ howItWorks:
     queues a new run.
 limits: >-
   There is no public demo. The app needs an account and the repo is private.
-  Data is not real-time: a refresh takes about 15 to 20 minutes to land.
 
 statusLine:
   - Private repo
