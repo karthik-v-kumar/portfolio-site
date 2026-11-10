@@ -13,6 +13,13 @@ proof:
     slug: clinical-site-insight-accelerator
   - label: Financial planning app
 
+# Slots held for two more work products. [NEEDS INPUT — name and description]
+pending:
+  - order: 3
+    label: Work product, write-up to come
+  - order: 4
+    label: Work product, write-up to come
+
 cta:
   work: See the work
   conversation: 15-minute conversation

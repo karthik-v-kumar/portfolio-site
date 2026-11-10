@@ -5,7 +5,7 @@ import path from 'node:path';
 
 const BANNED = [
   'passionate about', 'leverag', 'delve', "today's fast-paced", 'today’s fast-paced',
-  'elevate', 'harness', 'beacon', '🚀', '✨', '👋',
+  'elevate', 'harness', 'beacon', 'amgen', 'act fast', '🚀', '✨', '👋',
 ];
 
 async function* html(dir) {

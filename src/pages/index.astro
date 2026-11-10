@@ -8,8 +8,8 @@ const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.
 const flagships = work.filter((w) => w.data.tier === 'flagship');
 const [first, ...rest] = home.name.split(' ');
 const pad = (n: number) => String(n).padStart(2, '0');
-// §5.2: the roster is seven projects.
-const ROSTER = 7;
+// §5.2 roster of seven, plus two more work products.
+const ROSTER = 9;
 const conversationHref = home.cta.conversationHref ?? '#contact';
 ---
 
@@ -88,6 +88,19 @@ const conversationHref = home.cta.conversationHref ?? '#contact';
           </div>
         </article>
       ))
+    }
+
+    {
+      home.pending.length > 0 && (
+        <ol class="pending">
+          {home.pending.map((p) => (
+            <li>
+              <span class="idx">{pad(p.order)}<span aria-hidden="true"> / </span><span class="sr">of </span>{pad(ROSTER)}</span>
+              <span>{p.label}</span>
+            </li>
+          ))}
+        </ol>
+      )
     }
   </section>
 </Base>

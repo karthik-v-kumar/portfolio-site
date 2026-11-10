@@ -493,6 +493,22 @@ a:hover > .arrow {
   letter-spacing: -0.012em;
 }
 
+/* Slots for projects whose write-up is not in yet. */
+.pending {
+  margin-top: clamp(3rem, 7vw, 6.5rem);
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+}
+
+.pending li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  padding-block: 1rem;
+  border-bottom: 1px dashed var(--rule-strong);
+}
+
 /* ---------- Figure plate ---------- */
 
 .plate__frame {

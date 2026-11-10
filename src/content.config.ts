@@ -40,6 +40,7 @@ const site = defineCollection({
     positioning: z.string(),
     line: z.string(),
     proof: z.array(z.object({ label: z.string(), slug: z.string().optional() })),
+    pending: z.array(z.object({ order: z.number(), label: z.string() })).default([]),
     cta: z.object({
       work: z.string(),
       conversation: z.string(),
