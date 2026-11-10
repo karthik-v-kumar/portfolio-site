@@ -5,7 +5,7 @@ import path from 'node:path';
 
 const BANNED = [
   'passionate about', 'leverag', 'delve', "today's fast-paced", 'today’s fast-paced',
-  'elevate', 'harness', 'beacon', 'amgen', 'act fast', '🚀', '✨', '👋',
+  'elevate', 'harness', 'beacon', 'act fast', '🚀', '✨', '👋',
 ];
 
 async function* html(dir) {
@@ -16,10 +16,14 @@ async function* html(dir) {
   }
 }
 
+// The employer is named in the career block only, never on a product page.
+const WORK_ONLY = ['amgen', 'citeline', 'trialtrove'];
+
 let failed = false;
 for await (const file of html('dist')) {
   const text = (await readFile(file, 'utf8')).toLowerCase();
-  for (const word of BANNED) {
+  const banned = file.includes(`${path.sep}work${path.sep}`) ? [...BANNED, ...WORK_ONLY] : BANNED;
+  for (const word of banned) {
     if (text.includes(word)) {
       console.error(`${file}: contains "${word}"`);
       failed = true;

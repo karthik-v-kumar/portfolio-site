@@ -1,7 +1,7 @@
 ---
 # Employer work (BUILD_BRIEF.md §6): text only. No screenshots, no code, and no
 # employer or program name. Feature description supplied by Karthik.
-order: 2
+order: 3
 title: Clinical Site Insight Accelerator
 tier: flagship
 status: In production

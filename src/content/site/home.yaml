@@ -1,30 +1,133 @@
-# Source: BUILD_BRIEF.md §1 and §5.1. Superseded by CONTENT.md when it exists.
+# Sources: BUILD_BRIEF.md §1 and §5, Karthik's messages of Nov 10, 2026.
+# Superseded by CONTENT.md when it exists.
 name: Karthik Kumar
 positioning: AI product & strategy leader in life sciences who builds and ships.
 line: I lead AI product and strategy in life sciences. I also build and ship software myself, at work and on my own time.
 
-# §5.1 fallback proof strip: the three flagship project names as text links.
-# Stats replace this only when supplied in CONTENT.md. An entry links once its
-# deep-dive exists (slug set).
+# §5.1 fallback proof strip: three flagship project names as text links.
 proof:
   - label: Clinical Trial Delta
     slug: clinical-trial-delta
+  - label: AI Medical Insights Platform
+    slug: ai-medical-insights
   - label: Clinical Site Insight Accelerator
     slug: clinical-site-insight-accelerator
-  - label: Financial planning app
-
-# Slots held for two more work products. [NEEDS INPUT — name and description]
-pending:
-  - order: 3
-    label: Work product, write-up to come
-  - order: 4
-    label: Work product, write-up to come
 
 cta:
   work: See the work
   conversation: 15-minute conversation
-  # conversationHref: [NEEDS INPUT — calendar or mailto link; fallback LinkedIn URL, also not yet supplied]
+  # §5.1 fallback: the LinkedIn URL, until a calendar or mailto link is supplied.
+  conversationHref: https://www.linkedin.com/in/karthikvkumar1
 
 links:
+  - label: LinkedIn
+    href: https://www.linkedin.com/in/karthikvkumar1
   - label: GitHub
     href: https://github.com/karthik-v-kumar
+
+# §5.2 roster entries without a deep-dive yet. One line each, facts from the
+# brief. [NEEDS INPUT — five-part copy and synthetic-data screenshots]
+more:
+  - order: 5
+    title: Financial planning app
+    line: >-
+      A household planning app for income, budget, and tax estimates, with
+      card-benefit tracking. I can ask an AI agent questions about my own plan.
+    chips: [In daily use, Private repo]
+  - order: 6
+    title: Trading research platform
+    line: >-
+      A watchlist research app with computed valuation views, catalyst
+      tracking, and a daily data pipeline on GitHub Actions.
+    chips: [Private repo]
+  - order: 7
+    title: Trip Hub
+    line: >-
+      A travel planner for trips, itineraries, packing lists, and documents. My
+      AI agent can read and manage trips from chat.
+    chips: [In use, Private repo]
+  - order: 8
+    title: Stocked
+    line: >-
+      Shared household grocery lists and pantry inventory, with upkeep and
+      filter tracking.
+    chips: [Live, Public repo]
+    href: https://stocked.grok.me
+  - order: 9
+    title: Recoup
+    line: >-
+      A card-benefits wallet that tracks card credits and offers so they get
+      used before they expire.
+    chips: [Working product, Private repo]
+
+# §5.3. Draft wording from the brief's framing. [NEEDS INPUT — CONTENT.md copy]
+build:
+  lede: My apps are the systems of record. AI agents operate them. I make the consequential calls.
+  steps:
+    - name: Written spec
+      text: I write a build brief that says what to build and what not to.
+    - name: Agent build
+      text: An AI coding agent builds against the brief.
+    - name: Acceptance criteria
+      text: The brief’s acceptance criteria decide whether the build passes.
+    - name: My review
+      text: I review the result before it ships.
+  guardrailsLabel: Guardrails
+  guardrails:
+    - Synthetic data on anything public.
+    - My approval on consequential actions.
+  artifactsLabel: Artifacts
+  artifacts:
+    - label: A build brief
+      href: https://github.com/karthik-v-kumar/clinical-trial-delta/blob/main/BUILD_BRIEF.md
+    - label: AI evaluation results
+      href: https://github.com/karthik-v-kumar/clinical-trial-delta/tree/main/data/evals
+    - label: A daily pipeline run
+      href: https://github.com/karthik-v-kumar/clinical-trial-delta/actions/workflows/refresh.yml
+
+# §5.4. Newest first. One impact line each, only where the brief supplies one.
+career:
+  - role: Senior Manager, Digital Product Management
+    company: Amgen
+    dates: 2026–
+    # [NEEDS INPUT — impact line]
+  - role: Manager, Digital Product Management
+    company: Amgen
+    dates: 2024–2026
+    line: >-
+      Built a RAG-based agentic medical insights platform from MVP to scale:
+      477+ users, 17 product teams, 5x questions per month, 8.4 hours saved per
+      user per month.
+  - role: Manager, Digital Transformation & Innovation
+    company: Novo Nordisk
+    dates: 2023–2024
+    line: >-
+      Ran 5 AI/ML university-partnership projects across rare disease and
+      obesity. Rebuilt the innovation process to run 2x faster.
+  - role: Co-founder
+    company: YTLS Health
+    # [NEEDS INPUT — dates]
+    line: Wireless NICU monitoring. NSF I-Corps.
+  - role: Marketing Manager
+    company: You First Services
+    dates: 2017–2020
+    line: >-
+      Took a biotech disinfection product from idea to launch, with pilots at
+      Ohio State, Tennessee, and Buffalo, then full installation. Grew the
+      product portfolio from $240K to $950K+ in a year.
+  - role: Clinical Research Assistant
+    company: Oishei Children’s Hospital
+    dates: 2014–2017
+    line: Co-authored a Journal of Perinatology study.
+education: MBA and MS Marketing, UT Dallas (2023). BS Biological Sciences, Buffalo (2015).
+
+# §5.5
+contact:
+  line: >-
+    I’m looking for product and product-strategy roles at life-sciences AI
+    companies, and for conversations with founders building there.
+
+notFound:
+  title: Page not found
+  line: That address doesn’t lead anywhere on this site.
+  cta: Back to the work
