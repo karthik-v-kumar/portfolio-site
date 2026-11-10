@@ -8,6 +8,7 @@ interface Props {
 }
 const { number, caption, alt } = Astro.props;
 const lines = [3, 2, 3];
+const kpis = ['Challenges open', 'New challenges this month', 'Recurring issues', 'Sites'];
 ---
 
 <figure class="plate">
@@ -24,6 +25,14 @@ const lines = [3, 2, 3];
       <div class="sketch__main">
         <div class="sketch__dash">
           <p class="sketch__tag">Insights dashboard</p>
+          <div class="sketch__kpis">
+            {kpis.map((k) => (
+              <div class="sketch__box">
+                <span class="sketch__figure" />
+                <p class="sketch__name">{k}</p>
+              </div>
+            ))}
+          </div>
           <div class="sketch__row">
             <div class="sketch__box">
               <p class="sketch__name">Enrollment trend</p>

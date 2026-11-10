@@ -19,9 +19,11 @@ problem: >-
   team can read them all.
 howItWorks:
   - >-
-    A dashboard shows trends in study metrics such as enrollment and retention
-    for the study, country, or site a user selects. The team can see where a
-    problem is starting and address it.
+    A dashboard opens with a row of key figures, such as challenges open, new
+    challenges this month, recurring issues, and sites. Below that it shows
+    trends in study metrics such as enrollment and retention for the study,
+    country, or site a user selects. The team can see where a problem is
+    starting and address it.
   - >-
     The platform flags new challenges as they appear and tracks issues that keep
     coming back. For each one it recommends next steps, based on what worked at
@@ -49,7 +51,7 @@ links:
 sketch:
   alt: >-
     Sketch of the layout: a selector for global, study, country, or site view; a
-    dashboard with enrollment and retention trends, new challenges, recurring
+    dashboard with a row of key figures, enrollment and retention trends, new challenges, recurring
     issues, and recommended next steps; a chat panel with citations beside it;
     and a button to send a report to Outlook.
   caption: >-
