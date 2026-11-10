@@ -11,6 +11,9 @@ const figure = (image: any) =>
     caption: z.string(),
   });
 
+const named = z.object({ name: z.string(), text: z.string() });
+
+// Projects written up in the five-part blurb (brief §5.2).
 const work = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/work' }),
   schema: ({ image }) =>
@@ -20,7 +23,6 @@ const work = defineCollection({
       tier: z.enum(['flagship', 'index']),
       status: z.string(),
       chips: z.array(z.string()),
-      // The five-part blurb. Every project carries all five.
       whatItIs: z.string(),
       problem: z.string(),
       howItWorks: z.array(z.string()),
@@ -35,6 +37,40 @@ const work = defineCollection({
     }),
 });
 
+// Employer case studies, in the structure of the case-study brief.
+const cases = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/cases' }),
+  schema: z.object({
+    order: z.number(),
+    title: z.string(),
+    summary: z.string(),
+    role: z.string(),
+    timeframe: z.string(),
+    tags: z.array(z.string()),
+    metricsLabel: z.string(),
+    metrics: z.array(z.object({ value: z.string(), label: z.string() })),
+    why: z.array(z.string()),
+    builtIntro: z.string(),
+    built: z.array(named),
+    flow: z.object({
+      alt: z.string(),
+      caption: z.string(),
+      steps: z.array(z.object({ label: z.string(), items: z.array(z.string()) })),
+      loop: z.string().optional(),
+    }),
+    helps: z.array(named),
+    helpsNote: z.string().optional(),
+    drove: z.array(named),
+    resultsTitle: z.string(),
+    resultsCols: z.tuple([z.string(), z.string()]),
+    results: z.array(z.tuple([z.string(), z.string()])),
+    skills: z.array(z.string()),
+    card: z.object({ blurb: z.string(), tags: z.array(z.string()) }),
+    seo: z.object({ title: z.string(), description: z.string().max(160) }),
+    next: z.string(),
+  }),
+});
+
 const site = defineCollection({
   loader: glob({ pattern: '*.yaml', base: './src/content/site' }),
   schema: z.object({
@@ -42,15 +78,41 @@ const site = defineCollection({
     positioning: z.string(),
     line: z.string(),
     proof: z.array(z.object({ label: z.string(), slug: z.string().optional() })),
-    pending: z.array(z.object({ order: z.number(), label: z.string() })).default([]),
     cta: z.object({
       work: z.string(),
       conversation: z.string(),
-      // [NEEDS INPUT] calendar or mailto link; brief fallback is the LinkedIn URL.
       conversationHref: z.string().optional(),
     }),
     links: z.array(z.object({ label: z.string(), href: z.string().url() })),
+    more: z.array(
+      z.object({
+        order: z.number(),
+        title: z.string(),
+        line: z.string(),
+        chips: z.array(z.string()),
+        href: z.string().url().optional(),
+      }),
+    ),
+    build: z.object({
+      lede: z.string(),
+      steps: z.array(named),
+      guardrailsLabel: z.string(),
+      guardrails: z.array(z.string()),
+      artifactsLabel: z.string(),
+      artifacts: z.array(z.object({ label: z.string(), href: z.string().url() })),
+    }),
+    career: z.array(
+      z.object({
+        role: z.string(),
+        company: z.string(),
+        dates: z.string().optional(),
+        line: z.string().optional(),
+      }),
+    ),
+    education: z.string(),
+    contact: z.object({ line: z.string() }),
+    notFound: z.object({ title: z.string(), line: z.string(), cta: z.string() }),
   }),
 });
 
-export const collections = { work, site };
+export const collections = { work, cases, site };

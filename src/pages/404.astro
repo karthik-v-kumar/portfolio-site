@@ -1,0 +1,18 @@
+---
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const home = (await getEntry('site', 'home'))!.data;
+const nf = home.notFound;
+---
+
+<Base title={nf.title}>
+  <section class="hero wrap" aria-labelledby="nf">
+    <p class="idx notfound__code">404</p>
+    <h1 class="dive__title" id="nf">{nf.title}</h1>
+    <p class="case__summary">{nf.line}</p>
+    <div class="hero__cta">
+      <a class="btn btn--accent" href="/#work"><span aria-hidden="true">←</span> {nf.cta}</a>
+    </div>
+  </section>
+</Base>

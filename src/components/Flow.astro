@@ -1,0 +1,36 @@
+---
+// A plain flow diagram built from text boxes. Stacks top to bottom on narrow
+// screens and runs left to right on wide ones.
+interface Props {
+  number: string;
+  flow: { alt: string; caption: string; steps: { label: string; items: string[] }[]; loop?: string };
+}
+const { number, flow } = Astro.props;
+---
+
+<figure class="plate">
+  <div class="plate__frame">
+    <div class="flow" role="img" aria-label={flow.alt}>
+      <ol class="flow__steps">
+        {
+          flow.steps.map((s, i) => (
+            <li class="flow__step">
+              <span class="flow__n">{String(i + 1).padStart(2, '0')}</span>
+              <span class="flow__label">{s.label}</span>
+              {s.items.length > 0 && (
+                <ul class="flow__items">
+                  {s.items.map((it) => <li>{it}</li>)}
+                </ul>
+              )}
+            </li>
+          ))
+        }
+      </ol>
+      {flow.loop && <p class="flow__loop"><span aria-hidden="true">↩</span> {flow.loop}</p>}
+    </div>
+  </div>
+  <figcaption class="plate__caption">
+    <span class="idx">Fig. {number}</span>
+    <span>{flow.caption}</span>
+  </figcaption>
+</figure>
