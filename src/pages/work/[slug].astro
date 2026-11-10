@@ -12,8 +12,8 @@ const { entry } = Astro.props;
 const w = entry.data;
 const home = (await getEntry('site', 'home'))!.data;
 const pad = (n: number) => String(n).padStart(2, '0');
-// §5.2: the roster is seven projects.
-const ROSTER = 7;
+// §5.2 roster of seven, plus two more work products.
+const ROSTER = 9;
 const conversationHref = home.cta.conversationHref ?? '#contact';
 ---
 

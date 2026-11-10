@@ -1,6 +1,6 @@
 ---
-# Employer work (BUILD_BRIEF.md §6): text only. No screenshots, no code, no
-# numbers beyond the cleared facts in §9. Feature description supplied by Karthik.
+# Employer work (BUILD_BRIEF.md §6): text only. No screenshots, no code, and no
+# employer or program name. Feature description supplied by Karthik.
 order: 2
 title: Clinical Site Insight Accelerator
 tier: flagship
@@ -10,10 +10,9 @@ chips:
   - Employer work
 
 whatItIs: >-
-  The clinical site insights platform I own at work, part of a trial
-  recruitment program. It brings in clinical site information from Veeva and
-  shows study teams where problems are starting, at the global, study, country,
-  or site level.
+  A clinical site insights platform I own at work. It brings in clinical site
+  information from Veeva and shows study teams where problems are starting, at
+  the global, study, country, or site level.
 problem: >-
   Study teams need to know which sites are running into trouble and why. That
   information sits in Veeva, spread across millions of clinical notes, and no
@@ -32,9 +31,9 @@ howItWorks:
     of the data. Every answer cites its sources. Users can send a report from
     the app to Outlook to share it with the clinical study team.
 limits: >-
-  This is my employer’s product, so this page has no screenshots, no code, and no
-  numbers beyond what my employer has made public. I’m glad to talk through the
-  product decisions in a conversation.
+  This is my employer’s product, so this page has no screenshots, no code, and
+  no internal numbers. I’m glad to talk through the product decisions in a
+  conversation.
 
 statusLine:
   - In production
@@ -42,8 +41,8 @@ statusLine:
 links:
   - label: Status
     value: In production
-  - label: Employer
-    value: Not named
-  - label: Program
-    value: Trial recruitment
+  - label: Type
+    value: Employer work
+  - label: Shown here
+    value: Text only
 ---
