@@ -1,0 +1,89 @@
+---
+import { getEntry } from 'astro:content';
+import '../styles/global.css';
+import serif from '../assets/fonts/newsreader-latin-opsz-normal.woff2?url';
+import serifItalic from '../assets/fonts/newsreader-latin-opsz-italic.woff2?url';
+import sans from '../assets/fonts/archivo-latin-wght-normal.woff2?url';
+import mono400 from '../assets/fonts/ibm-plex-mono-latin-400-normal.woff2?url';
+import mono500 from '../assets/fonts/ibm-plex-mono-latin-500-normal.woff2?url';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const home = (await getEntry('site', 'home'))!.data;
+const { title, description = home.positioning } = Astro.props;
+const pageTitle = title ? `${title} — ${home.name}` : home.name;
+const conversationHref = home.cta.conversationHref ?? '#contact';
+
+const fontFaces = `
+@font-face{font-family:"Newsreader";font-style:normal;font-weight:200 800;font-display:swap;src:url(${serif}) format("woff2-variations")}
+@font-face{font-family:"Newsreader";font-style:italic;font-weight:200 800;font-display:swap;src:url(${serifItalic}) format("woff2-variations")}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:100 900;font-display:swap;src:url(${sans}) format("woff2-variations")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(${mono400}) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(${mono500}) format("woff2")}
+`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <!-- M0 design mock: keep out of search until launch. -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0A0A0B" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href={serif} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={sans} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={mono400} as="font" type="font/woff2" crossorigin />
+    <style set:html={fontFaces} is:inline />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="masthead wrap">
+      <a class="monogram" href="/" aria-label={`${home.name}, home`}>
+        <span aria-hidden="true">KK</span>
+      </a>
+      <nav class="masthead__nav" aria-label="Sections">
+        <a href="/#work"><span class="idx">01</span> Work</a>
+        <a href="#contact"><span class="idx">04</span> Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="colophon wrap" id="contact">
+      <div class="colophon__row">
+        <p class="label"><span class="idx">04</span> Contact</p>
+        <ul class="colophon__links">
+          {
+            home.cta.conversationHref && (
+              <li>
+                <a class="link" href={conversationHref}>
+                  {home.cta.conversation} <span aria-hidden="true">↗</span>
+                </a>
+              </li>
+            )
+          }
+          {
+            home.links.map((l) => (
+              <li>
+                <a class="link" href={l.href} rel="noopener">
+                  {l.label} <span aria-hidden="true">↗</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
