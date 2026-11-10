@@ -616,6 +616,20 @@ a:hover > .arrow {
   gap: 0.625rem;
 }
 
+.sketch__kpis {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.625rem;
+}
+
+/* Stands in for a number. */
+.sketch__figure {
+  display: block;
+  width: 2.25rem;
+  height: 1.125rem;
+  background: var(--rule-strong);
+}
+
 .sketch__box {
   display: grid;
   align-content: start;
@@ -675,6 +689,10 @@ a:hover > .arrow {
 @media (min-width: 48rem) {
   .sketch__main {
     grid-template-columns: 2fr 1fr;
+  }
+
+  .sketch__kpis {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .sketch__input {
