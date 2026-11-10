@@ -55,13 +55,12 @@ const conversationHref = home.cta.conversationHref ?? '#contact';
 
   <section class="section wrap" id="work" aria-labelledby="work-title">
     <header class="section__head">
-      <p class="section__num idx">01</p>
       <h2 class="section__title" id="work-title">Selected work</h2>
     </header>
 
     {
       flagships.map((w) => (
-        <article class="flagship">
+        <article class:list={['flagship', { 'flagship--text': !w.data.cardFigure }]}>
           <header class="flagship__head grid">
             <p class="flagship__num idx">{pad(w.data.order)}<span aria-hidden="true"> / </span><span class="sr">of </span>{pad(ROSTER)}</p>
             <h3 class="flagship__title">
@@ -81,9 +80,11 @@ const conversationHref = home.cta.conversationHref ?? '#contact';
                 ))}
               </ul>
             </div>
-            <div class="flagship__figure">
-              <Figure figure={w.data.cardFigure} number={pad(w.data.order)} sizes="(min-width: 60rem) 66vw, 92vw" />
-            </div>
+            {w.data.cardFigure && (
+              <div class="flagship__figure">
+                <Figure figure={w.data.cardFigure} number={pad(w.data.order)} sizes="(min-width: 60rem) 66vw, 92vw" />
+              </div>
+            )}
           </div>
         </article>
       ))

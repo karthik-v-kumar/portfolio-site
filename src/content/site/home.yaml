@@ -1,7 +1,7 @@
 # Source: BUILD_BRIEF.md §1 and §5.1. Superseded by CONTENT.md when it exists.
 name: Karthik Kumar
 positioning: AI product & strategy leader in life sciences who builds and ships.
-line: AI product & strategy leader in life sciences. I build and ship — at work, and after it.
+line: I lead AI product and strategy in life sciences. I also build and ship software myself, at work and on my own time.
 
 # §5.1 fallback proof strip: the three flagship project names as text links.
 # Stats replace this only when supplied in CONTENT.md. An entry links once its
@@ -9,7 +9,8 @@ line: AI product & strategy leader in life sciences. I build and ship — at wor
 proof:
   - label: Clinical Trial Delta
     slug: clinical-trial-delta
-  - label: Site Insights Accelerator
+  - label: Clinical Site Insight Accelerator
+    slug: clinical-site-insight-accelerator
   - label: Financial planning app
 
 cta:

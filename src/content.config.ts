@@ -23,12 +23,13 @@ const work = defineCollection({
       // The five-part blurb. Every project carries all five.
       whatItIs: z.string(),
       problem: z.string(),
-      interesting: z.string(),
-      honest: z.string(),
+      howItWorks: z.array(z.string()),
+      limits: z.string(),
       statusLine: z.array(z.string()),
       links: z.array(z.object({ label: z.string(), value: z.string(), href: z.string().url().optional() })),
-      cardFigure: figure(image),
-      pageFigure: figure(image),
+      // Employer work carries no figures (brief §6).
+      cardFigure: figure(image).optional(),
+      pageFigure: figure(image).optional(),
     }),
 });
 
