@@ -30,6 +30,8 @@ const work = defineCollection({
       // Employer work carries no figures (brief §6).
       cardFigure: figure(image).optional(),
       pageFigure: figure(image).optional(),
+      // A redrawn layout sketch, used where a screenshot is not allowed.
+      sketch: z.object({ alt: z.string(), caption: z.string() }).optional(),
     }),
 });
 

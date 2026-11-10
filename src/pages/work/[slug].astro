@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Figure from '../../components/Figure.astro';
+import SiteInsightSketch from '../../components/SiteInsightSketch.astro';
 
 export async function getStaticPaths() {
   const work = await getCollection('work');
@@ -68,6 +69,14 @@ const conversationHref = home.cta.conversationHref ?? '#contact';
       <div class="dive__figure grid">
         <div class="dive__figure-inner">
           <Figure figure={w.pageFigure} number={`${pad(w.order)}.1`} sizes="(min-width: 60rem) 75vw, 92vw" />
+        </div>
+      </div>
+    )}
+
+    {w.sketch && (
+      <div class="dive__figure grid">
+        <div class="dive__figure-inner">
+          <SiteInsightSketch number={`${pad(w.order)}.1`} caption={w.sketch.caption} alt={w.sketch.alt} />
         </div>
       </div>
     )}
