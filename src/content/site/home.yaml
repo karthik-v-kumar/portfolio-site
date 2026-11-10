@@ -1,0 +1,22 @@
+# Source: BUILD_BRIEF.md §1 and §5.1. Superseded by CONTENT.md when it exists.
+name: Karthik Kumar
+positioning: AI product & strategy leader in life sciences who builds and ships.
+line: AI product & strategy leader in life sciences. I build and ship — at work, and after it.
+
+# §5.1 fallback proof strip: the three flagship project names as text links.
+# Stats replace this only when supplied in CONTENT.md. An entry links once its
+# deep-dive exists (slug set).
+proof:
+  - label: Clinical Trial Delta
+    slug: clinical-trial-delta
+  - label: Site Insights Accelerator
+  - label: Financial planning app
+
+cta:
+  work: See the work
+  conversation: 15-minute conversation
+  # conversationHref: [NEEDS INPUT — calendar or mailto link; fallback LinkedIn URL, also not yet supplied]
+
+links:
+  - label: GitHub
+    href: https://github.com/karthik-v-kumar

@@ -1,0 +1,92 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Figure from '../components/Figure.astro';
+
+const home = (await getEntry('site', 'home'))!.data;
+const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+const flagships = work.filter((w) => w.data.tier === 'flagship');
+const [first, ...rest] = home.name.split(' ');
+const pad = (n: number) => String(n).padStart(2, '0');
+// §5.2: the roster is seven projects.
+const ROSTER = 7;
+const conversationHref = home.cta.conversationHref ?? '#contact';
+---
+
+<Base>
+  <section class="hero wrap" aria-labelledby="name">
+    <h1 class="hero__name" id="name">
+      <span>{first}</span>
+      <span>{rest.join(' ')}</span>
+    </h1>
+
+    <div class="hero__body grid">
+      <p class="hero__line">{home.line}</p>
+
+      <div class="hero__aside">
+        <ol class="proof">
+          {
+            home.proof.map((p, i) => (
+              <li>
+                <span class="idx">{pad(i + 1)}</span>
+                {p.slug ? (
+                  <a href={`/work/${p.slug}`}>
+                    {p.label} <span class="arrow" aria-hidden="true">→</span>
+                  </a>
+                ) : (
+                  <span>{p.label}</span>
+                )}
+              </li>
+            ))
+          }
+        </ol>
+
+        <div class="hero__cta">
+          <a class="btn btn--accent" href={conversationHref}>
+            {home.cta.conversation} <span aria-hidden="true">↗</span>
+          </a>
+          <a class="btn" href="#work">
+            {home.cta.work} <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="work" aria-labelledby="work-title">
+    <header class="section__head">
+      <p class="section__num idx">01</p>
+      <h2 class="section__title" id="work-title">Selected work</h2>
+    </header>
+
+    {
+      flagships.map((w) => (
+        <article class="flagship">
+          <header class="flagship__head grid">
+            <p class="flagship__num idx">{pad(w.data.order)}<span aria-hidden="true"> / </span><span class="sr">of </span>{pad(ROSTER)}</p>
+            <h3 class="flagship__title">
+              <a href={`/work/${w.id}`}>
+                {w.data.title}
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </h3>
+          </header>
+
+          <div class="flagship__body grid">
+            <div class="flagship__meta">
+              <p class="flagship__line">{w.data.whatItIs}</p>
+              <ul class="chips" aria-label="Evidence">
+                {w.data.chips.map((c) => (
+                  <li class:list={['chip', { 'chip--status': c === w.data.status }]}>{c}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="flagship__figure">
+              <Figure figure={w.data.cardFigure} number={pad(w.data.order)} sizes="(min-width: 60rem) 66vw, 92vw" />
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </section>
+</Base>

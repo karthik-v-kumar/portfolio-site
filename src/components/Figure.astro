@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  figure: { src: ImageMetadata; alt: string; caption: string };
+  number: string;
+  sizes: string;
+  eager?: boolean;
+}
+const { figure, number, sizes, eager = false } = Astro.props;
+---
+
+<figure class="plate">
+  <div class="plate__frame">
+    <Image
+      src={figure.src}
+      alt={figure.alt}
+      widths={[640, 960, 1280, 1920, 2560]}
+      sizes={sizes}
+      format="webp"
+      quality={82}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+    />
+  </div>
+  <figcaption class="plate__caption">
+    <span class="idx">Fig. {number}</span>
+    <span>{figure.caption}</span>
+  </figcaption>
+</figure>

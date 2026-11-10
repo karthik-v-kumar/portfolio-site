@@ -1,0 +1,3 @@
+# M0 design mock: not for indexing until launch (M3).
+User-agent: *
+Disallow: /
