@@ -1,0 +1,80 @@
+---
+// A redrawn sketch of the product's layout. Built from Karthik's written
+// description only: every shape is a placeholder and no real data appears.
+interface Props {
+  number: string;
+  caption: string;
+  alt: string;
+}
+const { number, caption, alt } = Astro.props;
+const lines = [3, 2, 3];
+---
+
+<figure class="plate">
+  <div class="plate__frame">
+    <div class="sketch" role="img" aria-label={alt}>
+      <div class="sketch__bar">
+        <span class="sketch__tag">View by</span>
+        <span class="sketch__pill sketch__pill--on">Global</span>
+        <span class="sketch__pill">Study</span>
+        <span class="sketch__pill">Country</span>
+        <span class="sketch__pill">Site</span>
+      </div>
+
+      <div class="sketch__main">
+        <div class="sketch__dash">
+          <p class="sketch__tag">Insights dashboard</p>
+          <div class="sketch__row">
+            <div class="sketch__box">
+              <p class="sketch__name">Enrollment trend</p>
+              <svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true">
+                <polyline points="0,46 30,40 60,42 90,30 120,26 150,16 200,10" />
+              </svg>
+            </div>
+            <div class="sketch__box">
+              <p class="sketch__name">Retention trend</p>
+              <svg class="is-flag" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true">
+                <polyline points="0,14 30,16 60,14 90,20 120,30 150,40 200,48" />
+              </svg>
+            </div>
+          </div>
+          <div class="sketch__row">
+            <div class="sketch__box">
+              <p class="sketch__name">New challenges</p>
+              {lines.map((n) => <span class="sketch__line" style={`width:${n * 25}%`} />)}
+            </div>
+            <div class="sketch__box">
+              <p class="sketch__name">Recurring issues</p>
+              {lines.map((n) => <span class="sketch__line" style={`width:${n * 22}%`} />)}
+            </div>
+          </div>
+          <div class="sketch__box">
+            <p class="sketch__name">Recommended next steps</p>
+            <p class="sketch__note">Based on what worked at other sites with a similar issue</p>
+            <span class="sketch__line" style="width:80%"></span>
+            <span class="sketch__line" style="width:62%"></span>
+          </div>
+          <span class="sketch__pill sketch__pill--action">Send report to Outlook</span>
+        </div>
+
+        <div class="sketch__chat">
+          <p class="sketch__tag">Chat</p>
+          <div class="sketch__bubble sketch__bubble--user">
+            <span class="sketch__line" style="width:100%"></span>
+          </div>
+          <div class="sketch__bubble">
+            <span class="sketch__line" style="width:100%"></span>
+            <span class="sketch__line" style="width:86%"></span>
+            <span class="sketch__line" style="width:54%"></span>
+            <p class="sketch__note">Citations [1] [2]</p>
+          </div>
+          <span class="sketch__input">Ask about this data</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <figcaption class="plate__caption">
+    <span class="idx">Fig. {number}</span>
+    <span>{caption}</span>
+  </figcaption>
+</figure>

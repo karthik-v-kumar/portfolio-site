@@ -37,12 +37,22 @@ limits: >-
 
 statusLine:
   - In production
-  - Employer work, described in text only
+  - Employer work, no screenshots
 links:
   - label: Status
     value: In production
   - label: Type
     value: Employer work
   - label: Shown here
-    value: Text only
+    value: Description and a layout sketch
+
+sketch:
+  alt: >-
+    Sketch of the layout: a selector for global, study, country, or site view; a
+    dashboard with enrollment and retention trends, new challenges, recurring
+    issues, and recommended next steps; a chat panel with citations beside it;
+    and a button to send a report to Outlook.
+  caption: >-
+    A redrawn sketch of the layout, not a screenshot. The shapes are
+    placeholders and no real data is shown.
 ---
