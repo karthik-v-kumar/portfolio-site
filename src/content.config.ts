@@ -44,7 +44,7 @@ const work = defineCollection({
             text: z.string(),
             figure: z.object({ src: image(), alt: z.string() }).optional(),
             // a small line illustration, for features shown without a screenshot
-            art: z.enum(['score', 'chart', 'sentiment', 'calendar', 'economy', 'chain', 'builder', 'trades', 'glossary', 'agent']).optional(),
+            art: z.enum(['score', 'chart', 'sentiment', 'calendar', 'economy', 'chain', 'builder', 'trades', 'glossary', 'agent', 'list', 'bars', 'flow', 'card', 'map', 'inbox', 'doc', 'sync', 'timeline', 'levels']).optional(),
           }),
         )
         .optional(),

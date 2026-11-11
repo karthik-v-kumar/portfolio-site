@@ -11,27 +11,27 @@ chips:
   - Private repo
 
 whatItIs: >-
-  A trading research site for a personal watchlist. For each ticker it shows
-  prices, technical indicators, a setup score, a fair value estimate, catalysts,
-  and news.
+  A stock research site built around a personal watchlist. For each stock it
+  shows the price history, a score for how good a buying opportunity it looks,
+  an estimate of fair value, upcoming events, and news.
 problem: >-
-  Deciding whether a stock is worth buying near its lows means checking
-  catalysts, fundamentals, the chart, and sentiment. Those sit on different
-  sites.
+  Deciding whether a stock is worth buying after a fall means checking upcoming
+  events, the company’s finances, the price chart, and what other investors are
+  doing. That information sits on different sites.
 howItWorks:
   - >-
-    A setup score rates each stock from 0 to 100 on how closely it matches a
-    “buy near the lows” checklist. The score is broken down rule by rule and
-    carries warnings for upcoming earnings and for stocks that are still
-    falling.
+    The app is built around one approach: buy a stock after its price has
+    fallen a long way. Each screen answers one question from that approach. Has
+    it fallen enough? Is it cheap for what the company earns? Is the selling
+    ending? What is coming up that could move it?
   - >-
-    Fair value blends four methods: a discounted cash flow model, the stock’s
-    own historical multiples, multiples relative to peers, and a reverse DCF.
-    The result is a base case with a bull and bear range.
+    Fair value is never a single number. Four methods each give a price range,
+    the app blends them into a base case with a high and a low case, and it
+    shows which methods it left out.
   - >-
-    A data pipeline on GitHub Actions fetches the data, computes the technicals
-    and valuations, and writes JSON files that the site reads. A Refresh button
-    queues a new run.
+    A data pipeline runs on GitHub Actions. It fetches prices and company data,
+    computes every score and valuation, and writes the results to files that
+    the site reads. A Refresh button starts a new run.
 featuresTitle: What it does
 featuresNote: >-
   Each part is explained for a reader who has never traded. The three

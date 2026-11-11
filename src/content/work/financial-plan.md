@@ -20,10 +20,9 @@ problem: >-
   apart.
 howItWorks:
   - >-
-    Six tabs feed each other: dashboard, income plan, spending plan, tax
-    planning, card benefits, and net worth. Property tax entered on the spending
-    plan is the property tax used in the tax calculation. Change a salary and
-    the tax tab, dashboard, and spending plan all move.
+    The tabs feed each other. Property tax entered on the spending plan is the
+    property tax used in the tax calculation. Change a salary and the tax tab,
+    dashboard, and spending plan all move.
   - >-
     The tax tab computes a full return and does not use a flat effective rate.
     It finds the marginal rate by running the whole return again with $1,000
@@ -33,6 +32,49 @@ howItWorks:
     The app is one HTML file with no build step. The public demo runs on
     fictional data and saves only to the visitor’s browser. In the private copy
     I use every day, I can ask an AI agent questions about my own plan.
+featuresTitle: What it does
+features:
+  - name: Dashboard
+    art: flow
+    text: >-
+      Shows net income, the savings rate, and the share of pay that goes to
+      fixed costs, with a bar showing where every dollar goes against target
+      ranges. A side panel ranks what needs attention and puts the most urgent
+      item in red.
+  - name: Income plan
+    art: list
+    text: >-
+      Builds each paycheck line by line: gross pay, 401k contribution,
+      deductions, tax, and take-home pay. Each person’s latest paystub is
+      entered once, and the rest of the app reads from it.
+  - name: Spending plan
+    art: bars
+    text: >-
+      Lays out the budget in order: fixed costs first, then investing, savings,
+      and what is left to spend freely. Each part is measured against a target
+      range.
+  - name: Tax planning
+    art: doc
+    text: >-
+      Estimates the year’s federal and California tax as a full return: income,
+      deductions, tax owed, and what has already been paid. It also estimates
+      the tax cost of selling an investment before you sell it.
+  - name: Card benefits
+    art: card
+    text: >-
+      Tracks the recurring credits on credit cards by month, quarter, and half
+      year. It marks the ones that closed unused and shows which expire soonest.
+  - name: Net worth
+    art: chart
+    text: >-
+      Records what the household owns and what it owes, and charts the total
+      over time.
+  - name: Year by year
+    art: timeline
+    text: >-
+      Everything that resets in January is kept per calendar year. A new year
+      opens from the previous year’s setup, and a closed year stays as a record.
+
 limits: >-
   There are no bank connections. The app models what should happen and does not
   record what did. The tax engine does not handle AMT, and nothing in it is tax
