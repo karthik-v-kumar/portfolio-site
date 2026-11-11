@@ -36,7 +36,7 @@ featuresTitle: What it does
 featuresNote: >-
   Each part is explained for a reader who has never traded. The three
   screenshots are from the public demo: market data is a snapshot from Nov 9,
-  2026, and option prices are modelled.
+  2026, and option prices are modeled.
 features:
   - name: Watchlist
     text: >-
@@ -141,7 +141,7 @@ features:
 
 limits: >-
   The public demo is a cut-down copy. Its market data is a snapshot for a short
-  example watchlist, its option chains are modelled and are not market quotes,
+  example watchlist, its option chains are modeled and are not market quotes,
   and its saved trades are invented examples.
 
 statusLine:
