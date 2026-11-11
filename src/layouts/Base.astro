@@ -1,0 +1,91 @@
+---
+import { getEntry } from 'astro:content';
+import '../styles/global.css';
+import sans from '../assets/fonts/geist-latin-wght-normal.woff2?url';
+import mono from '../assets/fonts/geist-mono-latin-wght-normal.woff2?url';
+
+interface Props {
+  title?: string;
+  /** Overrides the whole title tag. */
+  fullTitle?: string;
+  description?: string;
+}
+
+const home = (await getEntry('site', 'home'))!.data;
+const { title, fullTitle, description = home.positioning } = Astro.props;
+const pageTitle = fullTitle ?? (title ? `${title} | ${home.name}` : home.name);
+const ogImage = new URL('/og.png', Astro.site).href;
+const conversationHref = home.cta.conversationHref ?? '#contact';
+
+const fontFaces = `
+@font-face{font-family:"Geist";font-style:normal;font-weight:100 900;font-display:swap;src:url(${sans}) format("woff2-variations")}
+@font-face{font-family:"Geist Mono";font-style:normal;font-weight:100 900;font-display:swap;src:url(${mono}) format("woff2-variations")}
+`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <!-- M0 design mock: keep out of search until launch. -->
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0A0A0B" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href={sans} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={mono} as="font" type="font/woff2" crossorigin />
+    <style set:html={fontFaces} is:inline />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="masthead wrap">
+      <a class="monogram" href="/" aria-label={`KK, ${home.name}, home`}>
+        <span aria-hidden="true">KK</span>
+      </a>
+      <nav class="masthead__nav" aria-label="Sections">
+        <a href="/#work"><span class="idx">01</span> Work</a>
+        <a href="/#build"><span class="idx">02</span> <span class="masthead__long">How I </span>build</a>
+        <a href="/#career"><span class="idx">03</span> Career</a>
+        <a href="#contact"><span class="idx">04</span> Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="section section--contact wrap" id="contact" aria-labelledby="contact-title">
+      <header class="section__head">
+        <p class="section__num idx">04</p>
+        <h2 class="section__title" id="contact-title">Contact</h2>
+      </header>
+      <div class="grid contact">
+        <p class="contact__line">{home.contact.line}</p>
+        <div class="contact__side">
+          <a class="btn btn--accent" href={conversationHref} rel="noopener">
+            {home.cta.conversation} <span aria-hidden="true">↗</span>
+          </a>
+          <ul class="contact__links">
+            {
+              home.links.map((l) => (
+                <li>
+                  <a class="link" href={l.href} rel="noopener">
+                    {l.label} <span aria-hidden="true">↗</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

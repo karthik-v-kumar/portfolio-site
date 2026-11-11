@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ProjectDive from '../../components/ProjectDive.astro';
+import CaseStudy from '../../components/CaseStudy.astro';
+
+export async function getStaticPaths() {
+  const work = await getCollection('work');
+  const cases = await getCollection('cases');
+  return [
+    ...work.map((entry) => ({ params: { slug: entry.id }, props: { kind: 'project' as const, entry } })),
+    ...cases.map((entry) => ({ params: { slug: entry.id }, props: { kind: 'case' as const, entry } })),
+  ];
+}
+
+const props = Astro.props;
+---
+
+{
+  props.kind === 'project' ? (
+    <Base title={props.entry.data.title} description={props.entry.data.whatItIs}>
+      <ProjectDive entry={props.entry} />
+    </Base>
+  ) : (
+    <Base fullTitle={props.entry.data.seo.title} description={props.entry.data.seo.description}>
+      <CaseStudy entry={props.entry} />
+    </Base>
+  )
+}

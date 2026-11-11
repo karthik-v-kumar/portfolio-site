@@ -1,0 +1,225 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Figure from '../components/Figure.astro';
+import { pad, ROSTER } from '../lib/roster';
+
+const home = (await getEntry('site', 'home'))!.data;
+const work = await getCollection('work');
+const cases = await getCollection('cases');
+const [first, ...rest] = home.name.split(' ');
+const conversationHref = home.cta.conversationHref ?? '#contact';
+
+// Flagship entries: projects and employer case studies, in roster order.
+const flagships = [
+  ...work.filter((w) => w.data.tier === 'flagship').map((w) => ({
+    order: w.data.order,
+    title: w.data.title,
+    href: `/work/${w.id}`,
+    line: w.data.whatItIs,
+    chips: w.data.chips,
+    status: w.data.status as string | undefined,
+    figure: w.data.cardFigure,
+    tiles: undefined as undefined | { label: string; metrics: { value: string; label: string }[] },
+  })),
+  ...cases.map((c) => ({
+    order: c.data.order,
+    title: c.data.title,
+    href: `/work/${c.id}`,
+    line: c.data.card.blurb,
+    chips: c.data.card.tags,
+    status: undefined,
+    figure: undefined,
+    tiles: { label: c.data.metricsLabel, metrics: c.data.metrics },
+  })),
+].sort((a, b) => a.order - b.order);
+
+// Compact rows: projects with a deep-dive (internal link) and those without.
+const rows = [
+  ...work
+    .filter((w) => w.data.tier === 'index')
+    .map((w) => ({ order: w.data.order, title: w.data.title, line: w.data.whatItIs, chips: w.data.chips, href: `/work/${w.id}`, external: false })),
+  ...home.more.map((m) => ({ ...m, external: true })),
+].sort((a, b) => a.order - b.order);
+---
+
+<Base>
+  <section class="hero wrap" aria-labelledby="name">
+    <h1 class="hero__name" id="name">
+      <span>{first}</span>
+      <span>{rest.join(' ')}</span>
+    </h1>
+
+    <div class="hero__body grid">
+      <p class="hero__line">{home.line}</p>
+
+      <div class="hero__aside">
+        <ol class="proof">
+          {
+            home.proof.map((p, i) => (
+              <li>
+                <span class="idx">{pad(i + 1)}</span>
+                {p.slug ? (
+                  <a href={`/work/${p.slug}`}>
+                    {p.label} <span class="arrow" aria-hidden="true">→</span>
+                  </a>
+                ) : (
+                  <span>{p.label}</span>
+                )}
+              </li>
+            ))
+          }
+        </ol>
+
+        <div class="hero__cta">
+          <a class="btn btn--accent" href={conversationHref} rel="noopener">
+            {home.cta.conversation} <span aria-hidden="true">↗</span>
+          </a>
+          <a class="btn" href="#work">
+            {home.cta.work} <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="work" aria-labelledby="work-title">
+    <header class="section__head">
+      <p class="section__num idx">01</p>
+      <h2 class="section__title" id="work-title">Selected work</h2>
+    </header>
+
+    {
+      flagships.map((f) => (
+        <article class:list={['flagship', { 'flagship--text': !f.figure && !f.tiles }]}>
+          <header class="flagship__head grid">
+            <p class="flagship__num idx">{pad(f.order)}<span aria-hidden="true"> / </span><span class="sr">of </span>{pad(ROSTER)}</p>
+            <h3 class:list={['flagship__title', { 'is-long': f.title.length > 24 }]}>
+              <a href={f.href}>
+                {f.title}
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </h3>
+          </header>
+
+          <div class="flagship__body grid">
+            <div class="flagship__meta">
+              <p class="flagship__line">{f.line}</p>
+              <ul class="chips" aria-label="Tags">
+                {f.chips.map((c) => (
+                  <li class:list={['chip', { 'chip--status': c === f.status }]}>{c}</li>
+                ))}
+              </ul>
+            </div>
+            {f.figure && (
+              <div class="flagship__figure">
+                <Figure figure={f.figure} number={pad(f.order)} sizes="(min-width: 60rem) 66vw, 92vw" />
+              </div>
+            )}
+            {f.tiles && (
+              <div class="flagship__figure">
+                <p class="label">{f.tiles.label}</p>
+                <dl class="tiles">
+                  {f.tiles.metrics.map((m) => (
+                    <div class="tile">
+                      <dt class="tile__label">{m.label}</dt>
+                      <dd class="tile__value">{m.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            )}
+          </div>
+        </article>
+      ))
+    }
+
+    <ol class="rows">
+      {
+        rows.map((m) => (
+          <li class="row">
+            <span class="idx row__num">{pad(m.order)}<span aria-hidden="true"> / </span><span class="sr">of </span>{pad(ROSTER)}</span>
+            <h3 class="row__title">
+              {m.href ? (
+                <a href={m.href} rel={m.external ? 'noopener' : undefined}>
+                  {m.title} <span class="arrow" aria-hidden="true">{m.external ? '↗' : '→'}</span>
+                </a>
+              ) : (
+                m.title
+              )}
+            </h3>
+            <p class="row__line">{m.line}</p>
+            <ul class="chips row__chips" aria-label="Tags">
+              {m.chips.map((c) => <li class="chip">{c}</li>)}
+            </ul>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="section wrap" id="build" aria-labelledby="build-title">
+    <header class="section__head">
+      <p class="section__num idx">02</p>
+      <h2 class="section__title" id="build-title">How I build</h2>
+    </header>
+
+    <div class="grid build">
+      <p class="build__lede">{home.build.lede}</p>
+      <ol class="build__steps">
+        {
+          home.build.steps.map((s, i) => (
+            <li>
+              <span class="idx">{pad(i + 1)}</span>
+              <div>
+                <h3 class="build__name">{s.name}</h3>
+                <p>{s.text}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+      <div class="build__side">
+        <h3 class="label">{home.build.guardrailsLabel}</h3>
+        <ul class="build__list">
+          {home.build.guardrails.map((g) => <li>{g}</li>)}
+        </ul>
+        <h3 class="label">{home.build.artifactsLabel}</h3>
+        <ul class="build__list build__list--links">
+          {
+            home.build.artifacts.map((a) => (
+              <li>
+                <a class="link" href={a.href} rel="noopener">
+                  {a.label} <span aria-hidden="true">↗</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="career" aria-labelledby="career-title">
+    <header class="section__head">
+      <p class="section__num idx">03</p>
+      <h2 class="section__title" id="career-title">Career</h2>
+    </header>
+
+    <ol class="career">
+      {
+        home.career.map((j) => (
+          <li class="career__row grid">
+            <p class="career__dates idx">{j.dates}</p>
+            <h3 class="career__role">
+              {j.role}
+              <span class="career__co">{j.company}</span>
+            </h3>
+            {j.line && <p class="career__line">{j.line}</p>}
+          </li>
+        ))
+      }
+    </ol>
+    <p class="career__edu">{home.education}</p>
+  </section>
+</Base>

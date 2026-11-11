@@ -1,0 +1,139 @@
+---
+// Deep-dive in the five-part blurb structure (brief §5.2).
+import { getEntry, type CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import Figure from './Figure.astro';
+import FeatureArt from './FeatureArt.astro';
+import SiteInsightSketch from './SiteInsightSketch.astro';
+import { pad, ROSTER } from '../lib/roster';
+
+interface Props {
+  entry: CollectionEntry<'work'>;
+}
+const w = Astro.props.entry.data;
+const home = (await getEntry('site', 'home'))!.data;
+const hasFeatures = !!w.features?.length;
+// Section numbers shift by one when the feature walkthrough is present.
+const statusNum = pad(hasFeatures ? 5 : 4);
+const conversationHref = home.cta.conversationHref ?? '#contact';
+---
+
+<article class="dive wrap">
+  <header class="dive__head">
+    <p class="dive__crumb label">
+      <a class="link" href="/#work"><span aria-hidden="true">←</span> Selected work</a>
+      <span class="idx">{pad(w.order)}<span aria-hidden="true"> / </span><span class="sr">of </span>{pad(ROSTER)}</span>
+    </p>
+    <h1 class:list={["dive__title", { "is-long": w.title.length > 24 }]}>{w.title}</h1>
+  </header>
+
+  <dl class="facts">
+    {
+      w.links.map((l) => (
+        <div class="facts__cell">
+          <dt class="label">{l.label}</dt>
+          <dd>
+            {l.label === 'Status' && <span class="dot" aria-hidden="true" />}
+            {l.href ? (
+              <a class="link" href={l.href} rel="noopener">
+                {l.value} <span aria-hidden="true">↗</span>
+              </a>
+            ) : (
+              l.value
+            )}
+          </dd>
+        </div>
+      ))
+    }
+  </dl>
+
+  <section class="part grid">
+    <h2 class="part__label label"><span class="idx">01</span> What it is</h2>
+    <p class="part__lede">{w.whatItIs}</p>
+  </section>
+
+  <section class="part grid">
+    <h2 class="part__label label"><span class="idx">02</span> The problem</h2>
+    <p class="part__text">{w.problem}</p>
+  </section>
+
+  <section class="part grid">
+    <h2 class="part__label label"><span class="idx">03</span> How it works</h2>
+    <div class="part__text">
+      {w.howItWorks.map((para) => <p>{para}</p>)}
+    </div>
+  </section>
+
+  {hasFeatures && (
+  <section class="features">
+    <header class="part grid features__head">
+      <h2 class="part__label label"><span class="idx">04</span> {w.featuresTitle}</h2>
+      {w.featuresNote && <p class="part__text">{w.featuresNote}</p>}
+    </header>
+    <ol class="features__list">
+      {w.features!.map((f, i) => (
+        <li class:list={['feature', { 'feature--wide': !!f.figure }]}>
+          {f.art && <FeatureArt kind={f.art} />}
+          <div class="feature__copy">
+            <p class="idx feature__num">{pad(i + 1)}</p>
+            <h3 class="feature__name">{f.name}</h3>
+            <p class="feature__text">{f.text}</p>
+          </div>
+          {f.figure && (
+            <a class="feature__figure plate__frame" href={f.figure.src.src} aria-label={`${f.name}: open the full screenshot`}>
+              <Image src={f.figure.src} alt={f.figure.alt} widths={[640, 960, 1280, 1920]} sizes="(min-width: 60rem) 62vw, 92vw" format="webp" quality={78} loading="lazy" decoding="async" />
+            </a>
+          )}
+        </li>
+      ))}
+    </ol>
+  </section>
+)}
+
+{w.pageFigure && (
+    <div class="dive__figure grid">
+      <div class="dive__figure-inner">
+        <Figure figure={w.pageFigure} number={`${pad(w.order)}.1`} sizes="(min-width: 60rem) 75vw, 92vw" />
+      </div>
+    </div>
+  )}
+
+  {w.sketch && (
+    <div class="dive__figure grid">
+      <div class="dive__figure-inner">
+        <SiteInsightSketch number={`${pad(w.order)}.1`} caption={w.sketch.caption} alt={w.sketch.alt} />
+      </div>
+    </div>
+  )}
+
+  <section class="part grid">
+    <h2 class="part__label label"><span class="idx">{statusNum}</span> Status and links</h2>
+    <div class="part__status">
+      {w.note && <p class="part__closing">{w.note}</p>}
+      <p class="statusline">
+        {w.statusLine.map((s, i) => (
+          <>
+            {i > 0 && <span class="sep" aria-hidden="true">·</span>}
+            <span>{s}</span>
+          </>
+        ))}
+      </p>
+      <ul class="linklist">
+        {w.links.filter((l) => l.href).map((l) => (
+          <li>
+            <a class="link" href={l.href} rel="noopener">
+              {l.href!.replace('https://', '')} <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <footer class="dive__foot grid">
+    <a class="btn btn--accent" href={conversationHref}>
+      {home.cta.conversation} <span aria-hidden="true">↗</span>
+    </a>
+    <a class="btn" href="/#work"><span aria-hidden="true">←</span> Selected work</a>
+  </footer>
+</article>
