@@ -13,7 +13,8 @@ chips:
 whatItIs: >-
   A stock research site built around a personal watchlist. For each stock it
   shows the price history, a score for how good a buying opportunity it looks,
-  an estimate of fair value, upcoming events, and news.
+  a valuation that helps judge the right time to buy, upcoming events, and
+  news.
 problem: >-
   Deciding whether a stock is worth buying after a fall means checking upcoming
   events, the company’s finances, the price chart, and what other investors are
@@ -73,10 +74,11 @@ features:
   - name: Fair value
     text: >-
       Fair value is an estimate of what a company’s shares are worth, which can
-      differ from what they cost today. The app works it out several ways,
-      including from expected earnings, from the stock’s own history, and from
-      similar companies. It shows each result as a price range against today’s
-      price, and says which methods it left out and why.
+      differ from what they cost today. The gap between the two helps judge the
+      right time to buy: a price well below fair value suggests a bargain. The
+      app works the value out several ways, including from expected earnings,
+      from the stock’s own history, and from similar companies, and shows each
+      result as a price range against today’s price.
     figure:
       src: ../../assets/work/frh-valuation.png
       alt: Valuation panel with horizontal bars showing each method’s price range against today’s price, and a table of valuation multiples.
