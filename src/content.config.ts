@@ -34,6 +34,20 @@ const work = defineCollection({
       pageFigure: figure(image).optional(),
       // A redrawn layout sketch, used where a screenshot is not allowed.
       sketch: z.object({ alt: z.string(), caption: z.string() }).optional(),
+      // A walkthrough of what the product does, one feature at a time.
+      featuresTitle: z.string().optional(),
+      featuresNote: z.string().optional(),
+      features: z
+        .array(
+          z.object({
+            name: z.string(),
+            text: z.string(),
+            figure: z.object({ src: image(), alt: z.string() }).optional(),
+            // a small line illustration, for features shown without a screenshot
+            art: z.enum(['score', 'chart', 'sentiment', 'calendar', 'economy', 'chain', 'builder', 'trades', 'glossary', 'agent']).optional(),
+          }),
+        )
+        .optional(),
     }),
 });
 
