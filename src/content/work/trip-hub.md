@@ -13,7 +13,7 @@ whatItIs: >-
   day-by-day plan, bookings, documents, budget, and packing lists in one place.
 problem: >-
   A trip’s details end up scattered across email confirmations, map pins, notes,
-  and spreadsheets. They are hardest to find while you are travelling.
+  and spreadsheets. They are hardest to find while you are traveling.
 howItWorks:
   - >-
     An AI assistant called Muse can research the trip and fill in the plan. It
@@ -34,7 +34,7 @@ features:
   - name: Today
     art: timeline
     text: >-
-      While you are travelling, one screen shows what is next, how to get there,
+      While you are traveling, one screen shows what is next, how to get there,
       and what still isn’t booked.
   - name: Passport
     art: doc

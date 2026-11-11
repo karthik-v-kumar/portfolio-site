@@ -31,7 +31,7 @@ features:
     art: list
     text: >-
       Grocery, warehouse, and pharmacy lists to start, and you can add or delete
-      stores. Each list has its own name, icon, and colour.
+      stores. Each list has its own name, icon, and color.
   - name: Usuals tray
     art: economy
     text: >-
