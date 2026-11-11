@@ -14,7 +14,7 @@ const w = Astro.props.entry.data;
 const home = (await getEntry('site', 'home'))!.data;
 const hasFeatures = !!w.features?.length;
 // Section numbers shift by one when the feature walkthrough is present.
-const n = (base: number) => pad(base + (hasFeatures && base >= 4 ? 1 : 0));
+const statusNum = pad(hasFeatures ? 5 : 4);
 const conversationHref = home.cta.conversationHref ?? '#contact';
 ---
 
@@ -107,13 +107,9 @@ const conversationHref = home.cta.conversationHref ?? '#contact';
   )}
 
   <section class="part grid">
-    <h2 class="part__label label"><span class="idx">{n(4)}</span> Limits</h2>
-    <p class="part__honest">{w.limits}</p>
-  </section>
-
-  <section class="part grid">
-    <h2 class="part__label label"><span class="idx">{n(5)}</span> Status and links</h2>
+    <h2 class="part__label label"><span class="idx">{statusNum}</span> Status and links</h2>
     <div class="part__status">
+      {w.note && <p class="part__closing">{w.note}</p>}
       <p class="statusline">
         {w.statusLine.map((s, i) => (
           <>

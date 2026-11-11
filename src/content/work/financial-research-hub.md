@@ -135,14 +135,8 @@ features:
     text: >-
       With a personal access key, an AI assistant can read the watchlist,
       scores, valuations, events, and news, and can add or remove tickers. It
-      connects over MCP or a REST API. This part needs an account, so it is not
-      in the public demo.
+      connects over MCP or a REST API.
     art: agent
-
-limits: >-
-  The public demo is a cut-down copy. Its market data is a snapshot for a short
-  example watchlist, its option chains are modeled and are not market quotes,
-  and its saved trades are invented examples.
 
 statusLine:
   - Live demo

@@ -790,6 +790,15 @@ a:hover > .arrow {
   text-wrap: pretty;
 }
 
+.part__closing {
+  max-width: 26em;
+  margin-bottom: 1.5rem;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.25;
+  letter-spacing: -0.014em;
+  text-wrap: pretty;
+}
+
 .statusline {
   display: flex;
   flex-wrap: wrap;
