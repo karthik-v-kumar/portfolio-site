@@ -16,10 +16,6 @@ problem: >-
   and spreadsheets. They are hardest to find while you are travelling.
 howItWorks:
   - >-
-    Each day’s plan lists flights, hotels, activities, meals, and transport in
-    order, with the stops on a map. While you travel, a Today view shows what’s
-    next, how to get there, and what still isn’t booked.
-  - >-
     An AI assistant called Muse can research the trip and fill in the plan. It
     connects over MCP or a REST API with a personal key, and it can see and
     change only what its owner can.
@@ -27,6 +23,47 @@ howItWorks:
     The assistant’s changes wait in an Inbox until someone on the trip approves
     them. Packing-list changes apply straight away by default, and the user
     chooses which kinds of change need review.
+featuresTitle: What it does
+features:
+  - name: Days
+    art: map
+    text: >-
+      Each day’s plan in order: flights, hotels, activities, meals, and getting
+      around. The stops appear on a map, with ratings, photos, and opening hours
+      for each place.
+  - name: Today
+    art: timeline
+    text: >-
+      While you are travelling, one screen shows what is next, how to get there,
+      and what still isn’t booked.
+  - name: Passport
+    art: doc
+    text: >-
+      Confirmation codes, tickets, and travel documents, searchable in one
+      place.
+  - name: Money
+    art: bars
+    text: >-
+      The trip budget against what is planned, by category and per person.
+  - name: Lists
+    art: list
+    text: >-
+      Shared to-do lists and packing lists.
+  - name: Muse, the AI assistant
+    art: agent
+    text: >-
+      An AI assistant that can research the trip and fill in the plan.
+  - name: Inbox
+    art: inbox
+    text: >-
+      The assistant’s suggestions wait here until someone on the trip approves
+      them. A phone notification says when new ones arrive.
+  - name: Private by default
+    art: sync
+    text: >-
+      You see your own trips, your household’s trips, and the ones you are
+      invited to. Finished trips move to an archive.
+
 limits: >-
   To see it you have to create an account. There is no sample trip for visitors
   yet, and this page has no screenshot.

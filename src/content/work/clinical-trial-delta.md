@@ -27,9 +27,54 @@ howItWorks:
   - >-
     Trial pages also carry a short AI-written summary of the record, and those
     summaries are tested. 30 hand-written test cases and a set of automatic
-    checks run on every data refresh. When an API key is configured, a second AI
-    model scores each summary for accuracy and clarity. A summary that fails a
-    check is not published.
+    checks run on every data refresh. A summary that fails a check is not
+    published. When a model provider is set up, a second AI model also scores
+    each summary for accuracy and clarity.
+featuresTitle: What it does
+features:
+  - name: Collections
+    art: bars
+    text: >-
+      Three collections of trials: GLP-1 and obesity, type 2 diabetes, and
+      cholesterol. Each one shows its trials counted by phase and by status,
+      with a table of every trial.
+  - name: Change history
+    art: timeline
+    text: >-
+      Every change the pipeline detects is recorded with its date and type: a
+      new trial, a status change, an enrollment change, an endpoint change, a
+      site added or removed, a date change, or results posted.
+  - name: Trial pages
+    art: list
+    text: >-
+      One page per trial with its record, its full change history, and a
+      checklist of who can and cannot take part, built from the trial’s
+      eligibility text.
+  - name: AI summaries
+    art: doc
+    text: >-
+      A short plain-language summary of each trial, written by an AI model from
+      the registry record only. The page tells readers to verify it on
+      ClinicalTrials.gov.
+  - name: How the AI is checked
+    art: score
+    text: >-
+      A public page reports the latest test run: every test case, what the AI
+      wrote, and the expected answer.
+  - name: Trials near a city
+    art: map
+    text: >-
+      A search for the cities where a collection’s trials are recruiting.
+  - name: Count check
+    art: sync
+    text: >-
+      Every run compares its trial counts with ClinicalTrials.gov’s own totals
+      for the same searches.
+  - name: Glossary
+    art: glossary
+    text: >-
+      A page that explains the terms used on the site.
+
 limits: >-
   The comparison covers only the fields I chose to watch. Version 1 tracks
   status, enrollment, endpoints, sites, dates, and posted results. A change to

@@ -25,32 +25,25 @@ links:
   - label: GitHub
     href: https://github.com/karthik-v-kumar
 
-# §5.2 roster entries without a deep-dive yet. One line each, facts from the brief.
-more:
-  - order: 8
-    title: Stocked
-    line: >-
-      Shared household grocery lists and pantry inventory, with upkeep and
-      filter tracking.
-    chips: [Live, Public repo]
-    href: https://stocked.grok.me
+# §5.2 roster entries without a deep-dive. None at present.
+more: []
 
 # §5.3. Draft wording from the brief's framing. [NEEDS INPUT — CONTENT.md copy]
 build:
-  lede: My apps are the systems of record. AI agents operate them. I make the consequential calls.
+  lede: Each app I build is where its data lives. AI agents do the work inside it, and I make the decisions that carry consequences.
   steps:
     - name: Written spec
       text: I write a build brief that says what to build and what not to.
     - name: Agent build
       text: An AI coding agent builds against the brief.
     - name: Acceptance criteria
-      text: The brief’s acceptance criteria decide whether the build passes.
+      text: The brief lists the checks the build must pass. If it fails one, it isn’t done.
     - name: My review
       text: I review the result before it ships.
   guardrailsLabel: Guardrails
   guardrails:
-    - Synthetic data on anything public.
-    - My approval on consequential actions.
+    - Anything public runs on made-up data.
+    - An agent needs my approval before any action with real consequences.
   artifactsLabel: Artifacts
   artifacts:
     - label: A build brief
@@ -70,9 +63,9 @@ career:
     company: Amgen
     dates: 2024–2026
     line: >-
-      Built a RAG-based agentic medical insights platform from MVP to scale:
-      477+ users, 17 product teams, 5x questions per month, 8.4 hours saved per
-      user per month.
+      Took an AI medical insights platform from its first version to 17 product
+      teams: 477+ users, 5x questions per month, 8.4 hours saved per user per
+      month.
   - role: Manager, Digital Transformation & Innovation
     company: Novo Nordisk
     dates: 2023–2024

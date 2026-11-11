@@ -19,14 +19,46 @@ problem: >-
   gone.
 howItWorks:
   - >-
-    You pick your cards from a list and their credits come pre-filled. Tapping
-    a month, quarter, or half marks that credit as used.
-  - >-
-    The wallet works with no account. Signing in adds one thing: the same cards
-    and marks on the phone and on the web.
+    The wallet works with no account, so it can be opened and used straight
+    away. Signing in adds one thing: the same cards and marks on the phone and
+    on the web.
   - >-
     Each marked credit is stored as its own database row. Marks made on two
     devices merge, and neither device overwrites the other.
+featuresTitle: What it does
+features:
+  - name: Built-in card list
+    art: card
+    text: >-
+      You pick your cards from a list and each card’s credits are filled in for
+      you. Every figure can be edited, and a card that is not on the list can be
+      entered by hand.
+  - name: Mark a credit as used
+    art: list
+    text: >-
+      Each credit shows the period it covers and how many days are left before
+      it closes. Ticking it records it as used.
+  - name: Captured, open, and missed
+    art: score
+    text: >-
+      For each card the app totals the credits you have used this year, the ones
+      still open, and the ones that closed unused.
+  - name: Does the card pay for itself
+    art: trades
+    text: >-
+      A bar shows how far the credits you have used go toward covering the
+      card’s annual fee, and how much more is needed.
+  - name: Month and year views
+    art: calendar
+    text: >-
+      The month view lists what is open now. The year view shows every period of
+      every credit, so you can see the whole year at once.
+  - name: Phone and web
+    art: sync
+    text: >-
+      The wallet works with no account. Signing in keeps the same cards and
+      marks on the phone and on the web.
+
 limits: >-
   It is not a finished product. Checkout does not exist, so the upgrade button
   that appears with a second card goes nowhere.
