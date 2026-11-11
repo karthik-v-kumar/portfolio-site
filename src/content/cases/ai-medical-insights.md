@@ -7,9 +7,9 @@ summary: >-
   An AI platform that turns 8 separate data sources, from clinical trials and
   publications to field medical notes, into insights medical teams can act on,
   used by 17 product teams.
-role: Product Manager. I owned it from MVP through scale and the handoff to the business.
+role: Product Manager. I owned it from proof of concept through scale and the handoff to the business.
 timeframe: 2024–2026
-tags: [Generative AI, RAG, Agentic AI, MVP to scale, Medical Affairs]
+tags: [Generative AI, RAG, Agentic AI, Proof of concept to scale, Medical Affairs]
 
 metricsLabel: Impact
 metrics:
@@ -95,7 +95,7 @@ helpsNote: 68% of users report faster or more confident decisions.
 drove:
   - name: Turned around weak early adoption.
     text: >-
-      Usage was low after MVP. I raised it with leadership and ran a 2–3 week
+      Usage was low after the proof of concept. I raised it with leadership and ran a 2–3 week
       discovery sprint with medical directors, field medical teams and their
       leads, mapping how each role actually works.
   - name: Found the real gap.
@@ -133,7 +133,7 @@ skills: [Generative AI, Retrieval-augmented generation (RAG), Agentic workflows,
 
 card:
   blurb: >-
-    Took an AI insights platform from MVP to 477+ active users and 5x
+    Took an AI insights platform from proof of concept to 477+ active users and 5x
     engagement, giving medical teams hours back every month.
   tags: [Generative AI, RAG, Medical Affairs]
 seo:
