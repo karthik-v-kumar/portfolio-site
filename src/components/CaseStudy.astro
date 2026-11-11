@@ -1,0 +1,136 @@
+---
+// Employer case study, in the page structure of the case-study brief.
+import { getEntry, type CollectionEntry } from 'astro:content';
+import Flow from './Flow.astro';
+import { pad, ROSTER } from '../lib/roster';
+
+interface Props {
+  entry: CollectionEntry<'cases'>;
+}
+const c = Astro.props.entry.data;
+const home = (await getEntry('site', 'home'))!.data;
+const next = (await getEntry('cases', c.next))!;
+const conversationHref = home.cta.conversationHref ?? '#contact';
+---
+
+<article class="dive wrap">
+  <header class="dive__head">
+    <p class="dive__crumb label">
+      <a class="link" href="/#work"><span aria-hidden="true">←</span> Selected work</a>
+      <span class="idx">{pad(c.order)}<span aria-hidden="true"> / </span><span class="sr">of </span>{pad(ROSTER)}</span>
+    </p>
+    <h1 class:list={['dive__title', { 'is-long': c.title.length > 24 }]}>{c.title}</h1>
+    <p class="case__summary">{c.summary}</p>
+  </header>
+
+  <dl class="facts facts--case">
+    <div class="facts__cell facts__cell--wide">
+      <dt class="label">Role</dt>
+      <dd>{c.role}</dd>
+    </div>
+    <div class="facts__cell">
+      <dt class="label">Timeframe</dt>
+      <dd>{c.timeframe}</dd>
+    </div>
+  </dl>
+  <ul class="chips case__tags" aria-label="Tags">
+    {c.tags.map((t) => <li class="chip">{t}</li>)}
+  </ul>
+
+  <section class="tiles-wrap" aria-labelledby="tiles-title">
+    <h2 class="label" id="tiles-title">{c.metricsLabel}</h2>
+    <dl class="tiles">
+      {
+        c.metrics.map((m) => (
+          <div class="tile">
+            <dt class="tile__label">{m.label}</dt>
+            <dd class="tile__value">{m.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section class="part grid">
+    <h2 class="part__label label"><span class="idx">01</span> Why it mattered</h2>
+    <div class="part__text">
+      {c.why.map((para) => <p>{para}</p>)}
+    </div>
+  </section>
+
+  <section class="part grid">
+    <h2 class="part__label label"><span class="idx">02</span> What I built</h2>
+    <div class="part__text">
+      <p>{c.builtIntro}</p>
+      <ul class="deflist">
+        {c.built.map((b) => <li><strong>{b.name}</strong> {b.text}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <div class="dive__figure grid">
+    <div class="dive__figure-inner">
+      <Flow flow={c.flow} number={`${pad(c.order)}.1`} />
+    </div>
+  </div>
+
+  <section class="part grid">
+    <h2 class="part__label label"><span class="idx">03</span> How it helps teams</h2>
+    <div class="part__text">
+      <ul class="deflist">
+        {c.helps.map((b) => <li><strong>{b.name}</strong> {b.text}</li>)}
+      </ul>
+      {c.helpsNote && <p class="part__note">{c.helpsNote}</p>}
+    </div>
+  </section>
+
+  <section class="part grid">
+    <h2 class="part__label label"><span class="idx">04</span> How I drove it</h2>
+    <div class="part__text">
+      <ul class="deflist">
+        {c.drove.map((b) => <li><strong>{b.name}</strong> {b.text}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="part grid">
+    <h2 class="part__label label"><span class="idx">05</span> {c.resultsTitle}</h2>
+    <div class="part__status">
+      <table class="results">
+        <thead>
+          <tr>
+            <th scope="col">{c.resultsCols[0]}</th>
+            <th scope="col">{c.resultsCols[1]}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {c.results.map(([k, v]) => (
+            <tr>
+              <th scope="row">{k}</th>
+              <td>{v}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="part grid">
+    <h2 class="part__label label"><span class="idx">06</span> Tech and skills</h2>
+    <ul class="chips part__status" aria-label="Tech and skills">
+      {c.skills.map((t) => <li class="chip">{t}</li>)}
+    </ul>
+  </section>
+
+  <a class="nextcase" href={`/work/${next.id}`}>
+    <span class="label">Next case study</span>
+    <span class="nextcase__title">{next.data.title} <span class="arrow" aria-hidden="true">→</span></span>
+  </a>
+
+  <footer class="dive__foot grid">
+    <a class="btn btn--accent" href={conversationHref}>
+      {home.cta.conversation} <span aria-hidden="true">↗</span>
+    </a>
+    <a class="btn" href="/#work"><span aria-hidden="true">←</span> Selected work</a>
+  </footer>
+</article>
