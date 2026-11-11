@@ -2,7 +2,7 @@
 # Facts from the public repo's README (karthik-v-kumar/financial-planner) and
 # BUILD_BRIEF.md §5.2. Screenshots are of the public demo, fictional data only.
 order: 5
-title: Financial Plan
+title: Financial Planning
 tier: flagship
 status: Live demo
 chips:
@@ -91,7 +91,7 @@ links:
 cardFigure:
   src: ../../assets/work/financial-plan-dashboard.png
   alt: >-
-    Financial Plan dashboard, marked Demo data: net income per month, savings
+    Financial Planning dashboard, marked Demo data: net income per month, savings
     rate, fixed costs, a bar showing where every dollar goes, a net worth chart,
     and a red panel flagging the most urgent item.
   caption: >-
@@ -100,7 +100,7 @@ cardFigure:
 pageFigure:
   src: ../../assets/work/financial-plan-tax.png
   alt: >-
-    Financial Plan tax planning tab, marked Demo data: total tax, projected
+    Financial Planning tax tab, marked Demo data: total tax, projected
     refund, effective and marginal tax rates, deductions, and tables of gains,
     dividends and interest.
   caption: >-
