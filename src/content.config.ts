@@ -26,7 +26,8 @@ const work = defineCollection({
       whatItIs: z.string(),
       problem: z.string(),
       howItWorks: z.array(z.string()),
-      limits: z.string(),
+      // A closing line shown with the status, such as an invitation to talk.
+      note: z.string().optional(),
       statusLine: z.array(z.string()),
       links: z.array(z.object({ label: z.string(), value: z.string(), href: z.string().url().optional() })),
       // Employer work carries no figures (brief §6).

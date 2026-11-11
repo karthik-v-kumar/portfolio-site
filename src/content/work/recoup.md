@@ -59,14 +59,9 @@ features:
       The wallet works with no account. Signing in keeps the same cards and
       marks on the phone and on the web.
 
-limits: >-
-  It is not a finished product. Checkout does not exist, so the upgrade button
-  that appears with a second card goes nowhere.
-
 statusLine:
   - Live demo
   - Private repo
-  - Checkout not built
 links:
   - label: Status
     value: Live demo

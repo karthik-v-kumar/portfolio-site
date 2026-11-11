@@ -75,15 +75,9 @@ features:
       Everything that resets in January is kept per calendar year. A new year
       opens from the previous year’s setup, and a closed year stays as a record.
 
-limits: >-
-  There are no bank connections. The app models what should happen and does not
-  record what did. The tax engine does not handle AMT, and nothing in it is tax
-  or financial advice.
-
 statusLine:
   - Live demo
   - Public repo
-  - Demo runs on fictional data
 links:
   - label: Status
     value: Live demo

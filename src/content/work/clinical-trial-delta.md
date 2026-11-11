@@ -4,10 +4,10 @@
 order: 1
 title: Clinical Trial Delta
 tier: flagship
-status: In development
+status: Public repo
 chips:
-  - In development
   - Public repo
+  - Daily data pipeline
   - AI output tested
 
 whatItIs: >-
@@ -75,23 +75,17 @@ features:
     text: >-
       A page that explains the terms used on the site.
 
-limits: >-
-  The comparison covers only the fields I chose to watch. Version 1 tracks
-  status, enrollment, endpoints, sites, dates, and posted results. A change to
-  any other field will not show up.
-
 statusLine:
-  - In development
   - Public repo
-  - Live demo not deployed yet
+  - Data pipeline, site, and AI checks built
 links:
   - label: Status
-    value: In development
+    value: Pipeline, site, and AI checks built
   - label: Repo
     value: karthik-v-kumar/clinical-trial-delta
     href: https://github.com/karthik-v-kumar/clinical-trial-delta
-  - label: Live demo
-    value: Not deployed yet
+  - label: Data
+    value: Refreshed daily from ClinicalTrials.gov
 
 # Figures are screenshots of the real product, built locally from the public repo.
 # Captions say what the reader is looking at and where it came from.

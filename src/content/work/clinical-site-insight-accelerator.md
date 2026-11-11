@@ -32,21 +32,18 @@ howItWorks:
     A chat panel sits next to the dashboard, so a user can ask further questions
     of the data. Every answer cites its sources. Users can send a report from
     the app to Outlook to share it with the clinical study team.
-limits: >-
-  This is my employer’s product, so this page has no screenshots, no code, and
-  no internal numbers. I’m glad to talk through the product decisions in a
-  conversation.
+note: I’m glad to walk through the product decisions in a conversation.
 
 statusLine:
   - In production
-  - Employer work, no screenshots
+  - Employer work
 links:
   - label: Status
     value: In production
   - label: Type
     value: Employer work
   - label: Shown here
-    value: Description and a layout sketch
+    value: Product walkthrough and layout sketch
 
 sketch:
   alt: >-

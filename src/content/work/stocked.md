@@ -59,14 +59,9 @@ features:
       A household key lets an AI assistant read the lists, pantry, and filters.
       A write key can also change them. A key cannot invite or remove people.
 
-limits: >-
-  It was built around one two-person household’s habits. To see it you have to
-  sign in, and this page has no screenshot yet.
-
 statusLine:
   - Live
   - Public repo
-  - Sign-in needed to view
 links:
   - label: Status
     value: Live

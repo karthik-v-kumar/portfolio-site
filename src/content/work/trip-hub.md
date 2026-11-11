@@ -64,14 +64,9 @@ features:
       You see your own trips, your household’s trips, and the ones you are
       invited to. Finished trips move to an archive.
 
-limits: >-
-  To see it you have to create an account. There is no sample trip for visitors
-  yet, and this page has no screenshot.
-
 statusLine:
   - Live
   - Private repo
-  - Account needed to view
 links:
   - label: Status
     value: Live
