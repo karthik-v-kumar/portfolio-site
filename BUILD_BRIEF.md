@@ -75,9 +75,9 @@ Ordering principle: live-and-clickable first, wedge-relevant first. Each entry h
 **Roster (build all seven; content status noted):**
 
 1. **Clinical Trial Delta** — FLAGSHIP #1 (life-sciences wedge). Tracks clinical trials in GLP-1/obesity, T2D, and cholesterol; ClinicalTrials.gov only shows a trial's current record, so it snapshots the registry daily and surfaces what changed — status flips, enrollment, endpoints, sites. Built-in AI evaluation suite (golden set, CI assertions, LLM-judge). Public repo, live demo when deployed. Blurb draft in §9.
-2. **Site Insights Accelerator (SIA) — Amgen** — FLAGSHIP #2 (day-job proof). Clinical-trial site-insights AI inside Amgen's ACT FAST recruitment program; synthesizes millions of Veeva clinical notes. Narrative only — no screenshots, no repo, metrics limited to what Karthik marks cleared in `CONTENT.md`. `[NEEDS INPUT — scope/impact numbers]` Until then the deep-dive uses the cleared-facts fallback in §9. Employer IP rules in §6 are absolute.
+2. **Site Insights Accelerator (SIA)** — FLAGSHIP #2 (day-job proof). Clinical-trial site-insights AI inside a trial recruitment program at my employer; synthesizes millions of Veeva clinical notes. Narrative only — no screenshots, no repo, metrics limited to what Karthik marks cleared in `CONTENT.md`. `[NEEDS INPUT — scope/impact numbers]` Until then the deep-dive uses the cleared-facts fallback in §9. Employer IP rules in §6 are absolute.
 3. **Financial planning app** ("financial-plan-v2") — FLAGSHIP #3 (systems depth). Household financial OS: income/budget/tax estimation (incl. SALT-cap planning), card-benefit tracking. Live product, daily personal use; **private repo**, public entry shows screenshots with synthetic data only. The interesting-section hook: it has an agent-connection layer — he talks to his own plan through an AI agent with real numbers.
-4. **Trading research platform** — FLAGSHIP #4 (data pipeline + valuation). Watchlist research app: computed valuation lenses, catalyst tracking, daily data pipeline on GitHub Actions. Private repo; screenshots only, and never under the old "Beacon" name (trademark-risky, rename pending) — list it unbranded until he supplies the new name.
+4. **Trading research platform** — FLAGSHIP #4 (data pipeline + valuation). Watchlist research app: computed valuation lenses, catalyst tracking, daily data pipeline on GitHub Actions. Private repo; screenshots only, and never under its old name (trademark-risky, rename pending) — list it unbranded until he supplies the new name.
 
 5. **Trip Hub** — travel planner: trips, itineraries (flights, stays, transport, activities, meals), packing lists, documents. Live product, real trips run through it. Interesting-section hook: it exposes an agent layer, so his AI agent can read and manage trips from chat. Public repo candidate `household-tracking` is Stocked (below); Trip Hub repo is private (`trip-well-planned`).
 6. **Stocked** — household grocery lists and pantry inventory, shared across the household, with upkeep/filter tracking. Public repo (`household-tracking`). Live at stocked.grok.me. The smallest product on the page and deliberately included: it shows range and that the ecosystem includes unglamorous, used-daily tools.
@@ -93,9 +93,9 @@ The agent-ecosystem story, in his framing: **apps as systems of record, agents a
 
 A single timeline, newest first, role + company + dates + ONE impact line each. No paragraphs, no duties lists, no skills cloud. Entries (impact lines are placeholders until `CONTENT.md` supplies cleared numbers):
 
-- **Senior Manager, Digital Product Management — Amgen** (2026– ) · SIA, clinical-trial AI `[NEEDS INPUT — impact line]`
-- **Manager, Digital Product Management — Amgen** (2024–2026) · Built a RAG-based agentic medical-insights platform 0→1: 15+ brands, 477+ users, engagement 5x, 8.4 hrs saved per user per month
-- **Manager, Digital Transformation & Innovation — Novo Nordisk** (2023–2024) · Ran 5 AI/ML university-partnership projects across rare disease and obesity; rebuilt the innovation process, 2x faster
+- **Senior Manager, Digital Product Management** (2026– ) · SIA, clinical-trial AI `[NEEDS INPUT — impact line]`
+- **Manager, Digital Product Management** (2024–2026) · Built a RAG-based agentic medical-insights platform 0→1: 15+ brands, 477+ users, engagement 5x, 8.4 hrs saved per user per month
+- **Manager, Digital Transformation & Innovation** (2023–2024) · Ran 5 AI/ML university-partnership projects across rare disease and obesity; rebuilt the innovation process, 2x faster
 - **Co-founder — YTLS Health** (dates `[NEEDS INPUT]`) · Wireless NICU monitoring; NSF I-Corps. One line, matter-of-fact. Never the lead anywhere on this site.
 - **Marketing Manager — You First Services** (2017–2020) · Took a biotech disinfection product from idea to launch: pilots at Ohio State, Tennessee, and Buffalo, then full installation; grew the product portfolio from $240K to $950K+ in a year
 - **Clinical Research Assistant — Oishei Children's Hospital** (2014–2017) · Co-authored a Journal of Perinatology study
@@ -110,9 +110,9 @@ Education, one line: MBA + MS Marketing, UT Dallas (2023) · BS Biological Scien
 
 ## 6. Hard rules
 
-- **Employer IP:** Amgen and Novo Nordisk work is narrative-only. No screenshots, no internal documents, no code, no unreleased product details. Numbers only where `CONTENT.md` marks them cleared. If unsure whether a fact is cleared, leave it out and flag it.
+- **Employer IP:** Employer work is narrative-only. No screenshots, no internal documents, no code, no unreleased product details. Numbers only where `CONTENT.md` marks them cleared. If unsure whether a fact is cleared, leave it out and flag it.
 - **Privacy:** the financial app and trading platform are private repos with real personal data behind them. Public pages show screenshots with synthetic data only, and no real balances, positions, or account details anywhere — including in image filenames and alt text.
-- **No public "Beacon" name** anywhere until the rename lands.
+- **No public use of the research app's old name** anywhere until the rename lands.
 - **No invented anything:** metrics, dates, user counts, testimonials, logos of employers as endorsements. If it isn't in `CONTENT.md` or this brief, it doesn't ship.
 - **YTLS stays downplayed** (owner's explicit call): matter-of-fact timeline line only, never in the hero, never the lead of any summary.
 
@@ -145,10 +145,10 @@ The brief in one line: **a minimal, edgy-startup aesthetic executed at editorial
 - *Status:* In development · Public repo · Demo at launch.
 
 **SIA (deep-dive fallback, cleared facts only):**
-- *What it is:* Site Insights Accelerator — the clinical-trial site-insights product I own at Amgen, inside the ACT FAST recruitment program.
+- *What it is:* Site Insights Accelerator — the clinical-trial site-insights product I own at work, inside a trial recruitment program.
 - *The problem:* Trial teams choosing and supporting sites drown in unstructured clinical notes; the signal exists, spread across millions of Veeva records.
 - *What's interesting:* `[NEEDS INPUT — one cleared sentence on approach]`
-- *The honest line:* Employer product — no screenshots, no code, and only the numbers Amgen has made public. Happy to talk through the product decisions in conversation.
+- *The honest line:* Employer product — no screenshots, no code, and only the numbers my employer has made public. Happy to talk through the product decisions in conversation.
 - *Status:* In production · Employer work, narrative only.
 
 ## 10. Acceptance criteria
