@@ -33,11 +33,11 @@ why:
     landscape, commercial potential, and the cost and risk of the next phase.
   - >-
     Getting the call right, and making it quickly, matters. Advancing a weak
-    candidate ties up resources that could go to stronger ones. Slow decisions
+    drug candidate ties up resources that could go to stronger ones. Slow decisions
     delay promising therapies on their way to patients.
   - >-
-    The bottleneck was the analysis loop. Teams preparing a candidate’s case
-    averaged about 2.3 review cycles before a decision, because reviewers kept
+    The bottleneck was the analysis loop. Teams preparing a drug candidate’s
+    case averaged about 2.3 review cycles before a decision, because reviewers kept
     finding gaps that sent the case back. Each cycle added time to the decision
     and pulled teams away from the science.
 
@@ -51,7 +51,7 @@ built:
       analyses and structure reviewers expect. Before anything goes to the
       committee, it checks the submitted data for thoroughness and compares the
       full submission against a checklist we developed, so every component of
-      the candidate’s business case profile is present. New teams get up to
+      the drug candidate’s business case profile is present. New teams get up to
       speed faster and first submissions arrive complete.
   - name: Review simulation agent
     text: >-
@@ -60,32 +60,46 @@ built:
 
 flow:
   alt: >-
-    Flow diagram: Phase 1 data goes to the team building the case, guided and
-    checked by the Readiness agent; the Review simulation agent stress-tests it;
-    the decision committee then advances the candidate to Phase 2 or stops it.
-    A dashed rework loop runs from the committee back to the case.
-  caption: Where the two agents sit in the decision process.
+    Flow diagram: Phase 1 data goes to the team building the case, where the
+    Readiness agent guides it and checks it; the Review simulation agent then
+    stress-tests it; the decision committee advances the drug candidate to
+    Phase 2 or stops it. The two agent steps are highlighted. A dashed arrow
+    runs from the committee back to the team building the case: the rework
+    loop.
+  caption: Where the two agents sit in the decision process, and the rework loop they are meant to cut.
   steps:
     - label: Phase 1 data
       items: []
     - label: Team builds the case
-      items: [Readiness agent guides it and checks it against the completeness checklist]
+      items: []
+      agent:
+        name: Readiness agent
+        text: Guides the case and checks it against the completeness checklist.
     - label: Stress test
-      items: [Review simulation agent]
+      items: []
+      agent:
+        name: Review simulation agent
+        text: Tests the draft against the questions the committee is likely to raise.
     - label: Decision committee
       items: []
     - label: Decision
       items: [Advance to Phase 2, or stop]
-  loop: Rework loop, from the committee back to the case. That loop is what this project shrinks.
+  loop:
+    from: 4
+    to: 2
+    short: Rework loop
+    label: >-
+      Rework loop. Reviewers find gaps and send the case back to the team,
+      about 2.3 times per case today. The two agents are meant to cut it.
 
 helps:
   - name: Program teams
-    text: Fewer rework cycles and more time on the analysis that moves a candidate forward.
+    text: Fewer rework cycles and more time on the analysis that moves a drug candidate forward.
   - name: Decision-makers
     text: Cases arrive complete and already stress-tested, so reviews focus on the decision itself.
   - name: The pipeline
     text: >-
-      Faster, better-informed calls on which candidates advance, so resources
+      Faster, better-informed calls on which drug candidates advance, so resources
       reach the most promising ones sooner.
 
 drove:

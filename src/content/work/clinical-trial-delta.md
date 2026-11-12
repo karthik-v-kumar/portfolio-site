@@ -15,9 +15,11 @@ whatItIs: >-
   cholesterol. It shows what changed in each trial’s public record: status,
   enrollment, endpoints, and sites.
 problem: >-
-  ClinicalTrials.gov shows a trial’s current record. When a sponsor changes the
-  status, the enrollment number, or an endpoint, the page shows the new value,
-  and you would have to remember the old one to notice.
+  ClinicalTrials.gov keeps every past version of a trial’s record, but you
+  check them one trial at a time: open the trial, go to its record history,
+  and compare two versions. Following every trial in a therapeutic area that
+  way is not practical, so changes to status, enrollment, or endpoints are easy
+  to miss.
 howItWorks:
   - >-
     Every day the pipeline saves a copy of the registry record for each tracked

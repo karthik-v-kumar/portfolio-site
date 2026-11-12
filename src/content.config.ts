@@ -70,8 +70,18 @@ const cases = defineCollection({
     flow: z.object({
       alt: z.string(),
       caption: z.string(),
-      steps: z.array(z.object({ label: z.string(), items: z.array(z.string()) })),
-      loop: z.string().optional(),
+      steps: z.array(
+        z.object({
+          label: z.string(),
+          items: z.array(z.string()),
+          // An AI agent that works at this step; drawn highlighted.
+          agent: z.object({ name: z.string(), text: z.string() }).optional(),
+        }),
+      ),
+      // A dashed arrow from a later step back to an earlier one (1-based).
+      loop: z
+        .object({ from: z.number().int(), to: z.number().int(), short: z.string(), label: z.string() })
+        .optional(),
     }),
     helps: z.array(named),
     helpsNote: z.string().optional(),

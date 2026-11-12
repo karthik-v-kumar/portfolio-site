@@ -74,7 +74,7 @@ Ordering principle: live-and-clickable first, wedge-relevant first. Each entry h
 
 **Roster (build all seven; content status noted):**
 
-1. **Clinical Trial Delta** — FLAGSHIP #1 (life-sciences wedge). Tracks clinical trials in GLP-1/obesity, T2D, and cholesterol; ClinicalTrials.gov only shows a trial's current record, so it snapshots the registry daily and surfaces what changed — status flips, enrollment, endpoints, sites. Built-in AI evaluation suite (golden set, CI assertions, LLM-judge). Public repo, live demo when deployed. Blurb draft in §9.
+1. **Clinical Trial Delta** — FLAGSHIP #1 (life-sciences wedge). Tracks clinical trials in GLP-1/obesity, T2D, and cholesterol; ClinicalTrials.gov keeps past versions one trial at a time, so it snapshots the registry daily and surfaces what changed — status flips, enrollment, endpoints, sites. Built-in AI evaluation suite (golden set, CI assertions, LLM-judge). Public repo, live demo when deployed. Blurb draft in §9.
 2. **Site Insights Accelerator (SIA)** — FLAGSHIP #2 (day-job proof). Clinical-trial site-insights AI inside a trial recruitment program at my employer; synthesizes millions of Veeva clinical notes. Narrative only — no screenshots, no repo, metrics limited to what Karthik marks cleared in `CONTENT.md`. `[NEEDS INPUT — scope/impact numbers]` Until then the deep-dive uses the cleared-facts fallback in §9. Employer IP rules in §6 are absolute.
 3. **Financial planning app** ("financial-plan-v2") — FLAGSHIP #3 (systems depth). Household financial OS: income/budget/tax estimation (incl. SALT-cap planning), card-benefit tracking. Live product, daily personal use; **private repo**, public entry shows screenshots with synthetic data only. The interesting-section hook: it has an agent-connection layer — he talks to his own plan through an AI agent with real numbers.
 4. **Trading research platform** — FLAGSHIP #4 (data pipeline + valuation). Watchlist research app: computed valuation lenses, catalyst tracking, daily data pipeline on GitHub Actions. Private repo; screenshots only, and never under its old name (trademark-risky, rename pending) — list it unbranded until he supplies the new name.
@@ -139,7 +139,7 @@ The brief in one line: **a minimal, edgy-startup aesthetic executed at editorial
 
 **Clinical Trial Delta (deep-dive, draft):**
 - *What it is:* A tracker for clinical trials in GLP-1/obesity, type 2 diabetes, and cholesterol that records what changed, not just what is.
-- *The problem:* ClinicalTrials.gov only ever shows a trial's current record. A status flip, an enrollment cut, a moved endpoint — once it changes, the old state is gone.
+- *The problem:* ClinicalTrials.gov keeps past versions of a record, but only one trial at a time. A status flip, an enrollment cut, a moved endpoint — across a whole therapeutic area, these are easy to miss.
 - *What's interesting:* The pipeline snapshots the registry daily and diffs it, so change itself becomes the dataset. It ships with an AI evaluation suite — a golden set, assertions that run in CI on every change, and an LLM judge when a key is present — because "the AI summarized it" is not a quality standard.
 - *The honest line:* The differ is only as good as its field selection; v1 watches the fields that matter and will miss exotic edits.
 - *Status:* In development · Public repo · Demo at launch.
