@@ -239,7 +239,7 @@ a {
 .hero__name {
   font-family: var(--sans);
   font-weight: 400;
-  font-size: clamp(5.25rem, 27.5vw, 11rem);
+  font-size: clamp(4rem, 21vw, 8rem);
   line-height: 0.82;
   letter-spacing: -0.038em;
   /* pull the K's side bearing back so the stem sits on the margin */
@@ -399,7 +399,7 @@ a:hover > .arrow {
   grid-column: 1 / -1;
   font-family: var(--sans);
   font-weight: 400;
-  font-size: clamp(3rem, 13.5vw, 5rem);
+  font-size: clamp(2.5rem, 10.5vw, 4rem);
   line-height: 0.92;
   letter-spacing: -0.03em;
   margin-left: -0.04em;
@@ -706,7 +706,7 @@ a:hover > .arrow {
   margin-left: -0.045em;
   font-family: var(--sans);
   font-weight: 400;
-  font-size: clamp(3.5rem, 15.5vw, 6rem);
+  font-size: clamp(2.75rem, 12vw, 4.75rem);
   line-height: 0.88;
   letter-spacing: -0.034em;
   text-wrap: balance;
@@ -928,13 +928,13 @@ a:hover > .arrow {
 /* ---------- Long titles ---------- */
 
 .flagship__title.is-long {
-  font-size: clamp(2.25rem, 9.5vw, 3.25rem);
+  font-size: clamp(2rem, 8vw, 2.75rem);
   line-height: 0.98;
   letter-spacing: -0.028em;
 }
 
 .dive__title.is-long {
-  font-size: clamp(2.5rem, 10.5vw, 3.75rem);
+  font-size: clamp(2.25rem, 9vw, 3.25rem);
   line-height: 0.96;
   letter-spacing: -0.03em;
 }
@@ -1443,7 +1443,7 @@ a:hover > .arrow {
 
 @media (min-width: 48rem) {
   .hero__name {
-    font-size: clamp(6rem, 14.6vw, 17rem);
+    font-size: clamp(4.75rem, 10.5vw, 12rem);
     line-height: 0.84;
   }
 
@@ -1467,7 +1467,7 @@ a:hover > .arrow {
   }
 
   .flagship__title {
-    font-size: clamp(4.5rem, 9.4vw, 10.5rem);
+    font-size: clamp(3rem, 6vw, 6.5rem);
     line-height: 0.88;
     letter-spacing: -0.034em;
   }
@@ -1492,17 +1492,17 @@ a:hover > .arrow {
   }
 
   .dive__title {
-    font-size: clamp(5rem, 11.4vw, 13rem);
+    font-size: clamp(3.75rem, 8vw, 9rem);
   }
 
   .flagship__title.is-long {
-    font-size: clamp(3.25rem, 6.2vw, 7rem);
+    font-size: clamp(2.5rem, 4.4vw, 4.75rem);
     line-height: 0.94;
     max-width: 14em;
   }
 
   .dive__title.is-long {
-    font-size: clamp(3.5rem, 7vw, 8rem);
+    font-size: clamp(2.75rem, 5.2vw, 5.75rem);
     line-height: 0.92;
     max-width: 13em;
   }
