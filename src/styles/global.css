@@ -239,7 +239,7 @@ a {
 .hero__name {
   font-family: var(--sans);
   font-weight: 400;
-  font-size: clamp(4rem, 21vw, 8rem);
+  font-size: clamp(5.25rem, 27.5vw, 11rem);
   line-height: 0.82;
   letter-spacing: -0.038em;
   /* pull the K's side bearing back so the stem sits on the margin */
@@ -399,7 +399,7 @@ a:hover > .arrow {
   grid-column: 1 / -1;
   font-family: var(--sans);
   font-weight: 400;
-  font-size: clamp(2.5rem, 10.5vw, 4rem);
+  font-size: clamp(3rem, 13.5vw, 5rem);
   line-height: 0.92;
   letter-spacing: -0.03em;
   margin-left: -0.04em;
@@ -706,7 +706,7 @@ a:hover > .arrow {
   margin-left: -0.045em;
   font-family: var(--sans);
   font-weight: 400;
-  font-size: clamp(2.75rem, 12vw, 4.75rem);
+  font-size: clamp(3.5rem, 15.5vw, 6rem);
   line-height: 0.88;
   letter-spacing: -0.034em;
   text-wrap: balance;
@@ -928,13 +928,13 @@ a:hover > .arrow {
 /* ---------- Long titles ---------- */
 
 .flagship__title.is-long {
-  font-size: clamp(2rem, 8vw, 2.75rem);
+  font-size: clamp(2.25rem, 9.5vw, 3.25rem);
   line-height: 0.98;
   letter-spacing: -0.028em;
 }
 
 .dive__title.is-long {
-  font-size: clamp(2.25rem, 9vw, 3.25rem);
+  font-size: clamp(2.5rem, 10.5vw, 3.75rem);
   line-height: 0.96;
   letter-spacing: -0.03em;
 }
